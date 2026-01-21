@@ -136,7 +136,7 @@ export default function Navbar() {
                             height={100}
                             className="rounded-full object-contain"
                         />
-                        <h2 className="text-white text-lg font-serif font-bold tracking-tight">
+                        <h2 className="text-white text-lg font-serif  tracking-tight">
                             Serendia Gems
                         </h2>
                     </Link>
