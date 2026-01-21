@@ -1,9 +1,9 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
 
 :root {
-  --background: #f6f6f8;
-  --foreground: #111418;
+  --background: #0b0f19;
+  --foreground: #ffffff;
   --background-dark: #0b0f19;
   --surface-dark: #151c2b;
   --border-dark: #232f48;
@@ -19,12 +19,6 @@
   --color-primary: var(--primary);
   --font-display: 'Inter', sans-serif;
   --font-serif: 'Playfair Display', serif;
-}
-
-/* Dark mode by default */
-:root {
-  --background: #0b0f19;
-  --foreground: #ffffff;
 }
 
 body {
@@ -65,9 +59,4 @@ body {
 .bg-heritage-pattern {
   background-image: radial-gradient(#1e293b 1px, transparent 1px);
   background-size: 32px 32px;
-}
-
-/* Material Symbols */
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
