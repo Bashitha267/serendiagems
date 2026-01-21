@@ -1,0 +1,349 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { useCart } from "@/context/CartContext";
+
+const products = [
+    {
+        id: "1",
+        name: "Royal Blue Sapphire",
+        weight: "2.14 ct",
+        cut: "Cushion Cut",
+        price: 4250,
+        treatment: "Natural",
+        badge: "New Arrival",
+        badgeColor: "bg-[#1152d4]/90",
+        image:
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuCG2eVEoI1DlbG6WoeWY-fJHBkCfzSLiI-dAhtr4sU_0GW2FYHIF_pPxpFm3oVGqXOZZFBpQ58Uon-F81aaYkfy_pq1wwP2ajSA7clGOErdIAp9j1dQwjCiGf_aaScWwq5yEbll0Cu8R-h6TEGdb8Ymjauh6WsI02o8NclA0QtBA6YBDzDTOqZWVY73HHF0H5t4C-RBdMGF25Ker_WDQuON-IjGz2HGFWsL0DLdC6F4dUKAEtWK6TgvL56GvhyhHMzX-5phlbymZiVh",
+    },
+    {
+        id: "2",
+        name: "Vivid Pink Sapphire",
+        weight: "1.85 ct",
+        cut: "Oval Cut",
+        price: 3100,
+        treatment: "Heated",
+        badge: null,
+        image:
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuD5sfdfJiltsSqtGvE9joOFi4Dh_od0RuJU6B2YlKJWzE24608OQFnYC_BW5-4PeSbYKzHqyPAZvo9Q6i1Bwdw7eTLPrU973Syhh2iu932oStYs4uHeibPy7Qfv4LCeSxD3LIc9va-FsHT9PXvY1rAplQdiEBowEcE9ty_sKqAVsMCb6ND8cF10rjN7rgFZbX0Foz_78aHYiTFnengd5ERiZHitV3ZREe4778XuFs9zaNlMDiBcZVQZsmxLtWpbKctj02Uz_eSnhorw",
+    },
+    {
+        id: "3",
+        name: "Burma Ruby",
+        weight: "1.50 ct",
+        cut: "Round Cut",
+        price: 8500,
+        treatment: "Natural",
+        badge: "Rare Find",
+        badgeColor: "bg-rose-600/90",
+        image:
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuCVxs5ull0jDUMHtPnuxvBBjewTLf1Fj-FSviqCeiDqrZCcXaLqQR4LcHdpi0R2eOAO_x8_GOmxRI6_3iAE3Obap4miXdRap9rK3MBtH6mZ5Fwk6YH-qjb6AWLzkhCv_YESy_jsR7NFAR7e1kMc4cgaqHZk2UpXyxI42oK3LkkR352jAYO8alT_luQWyRGCp0FKSBumZiBylVB4f81iyfZTX4ZFhJOoXUxPsEWVorUqcngLKO5cQN8RD7258SVUo4y6jiNlBCyyoabn",
+    },
+    {
+        id: "4",
+        name: "Canary Yellow Sapphire",
+        weight: "3.05 ct",
+        cut: "Emerald Cut",
+        price: 5900,
+        treatment: "Natural",
+        badge: null,
+        image:
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuDjv6ImtDP-t7kDwju13E6IKkZ3jfeUtcL5rid5QQQgimdNGkQCG6wv9oZLClEvmKbCU_T1Zel9qRbKyj15vY_k_v6jQbeNpZQVbE9hU1BuznXomNMYQO13jgNJM9EiTt_i9lHSmv59kekCixfa2VbCkppsDxhrnGiFtJsnkUpXrE8RHYblfJ0pXN9xf_J2b_VwZk8IAt8qi1kAlheafHCLxOexYP8Ftk949Ftx4RHItdmLulfFmdS-DDSLNYZyMYYIrSDlu1oSpgeq",
+    },
+    {
+        id: "5",
+        name: "Peacock Teal Sapphire",
+        weight: "1.95 ct",
+        cut: "Radiant Cut",
+        price: 2800,
+        treatment: "Heated",
+        badge: null,
+        image:
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuAEzPVAdFo6FpL8C7hF0agP2j7io8_1pE8ky1bEIsj79zqLE_75fQfU0ojTu7VUnzzEwK-iWt26ZlOPIUGc2Mw6xqRyFgAKnal2j-vK-PmKV4EZ4CGW1VsvNg3h2COYKMzOz4-_UK3tZhDgbO7yGqUWA80Fh-BmlKUjI1VMr3IF19KNbCT6Uh39TlkAVgnQtfifgs8ZWiQHXY507J7Mr9-V-_k8MLc1mR-P7YAS3r1L2QxA01ah9gA94-LPzBI_gYHiLeidQh0XfBAp",
+    },
+    {
+        id: "6",
+        name: "Lavender Spinel",
+        weight: "2.50 ct",
+        cut: "Cushion Cut",
+        price: 1950,
+        treatment: "Natural",
+        badge: null,
+        image:
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuBmzxa1cH3xwJRwDYpDU-w-6f3z1zo5cxDe79b47UwIA3rN409Z5U8Jc6KeGCjnK3KNdKo_MdM27hzNtJFUV11AvGFWL-1U27J3uV-dV2PSPd8oIAFhoc8TvppX_q97uZWiKzL7e43XvLN986-kroeWk__ibiVMJNPDx1wkIDyJKYh2UIrnUKJMZSeFCCkJji1veENwiRJRqgbLcgg_0ckHpluFJowsomCZKQT6EmyaQViNIE9VkBtvvDIDDtYOPHuI29nhipY2Vji7",
+    },
+];
+
+export default function CollectionsPage() {
+    const { addItem, openCart } = useCart();
+    const [favorites, setFavorites] = useState<string[]>([]);
+
+    const toggleFavorite = (id: string) => {
+        setFavorites((prev) =>
+            prev.includes(id) ? prev.filter((fav) => fav !== id) : [...prev, id]
+        );
+    };
+
+    const handleAddToCart = (product: (typeof products)[0]) => {
+        addItem({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            weight: product.weight,
+            cut: product.cut,
+        });
+        openCart();
+    };
+
+    return (
+        <main className="flex-1 bg-heritage-pattern pt-20">
+            <div className="mx-auto flex max-w-[1440px] flex-col px-4 py-6 md:px-8 lg:px-12">
+                {/* Breadcrumbs */}
+                <nav className="flex flex-wrap items-center gap-2 pb-6 text-sm text-gray-500">
+                    <Link href="/" className="hover:text-[#1152d4] transition-colors">
+                        Home
+                    </Link>
+                    <span className="material-symbols-outlined text-[16px]">
+                        chevron_right
+                    </span>
+                    <span className="font-medium text-white">Collections</span>
+                </nav>
+
+                {/* Page Heading */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
+                >
+                    <div className="flex max-w-2xl flex-col gap-3">
+                        <h1 className="text-4xl font-black leading-tight tracking-tight text-white lg:text-5xl">
+                            The Ceylon Collection
+                        </h1>
+                        <p className="text-lg text-gray-400">
+                            Discover our ethically sourced, hand-selected sapphires and rubies
+                            from the heart of Sri Lanka. Each stone tells a story of heritage
+                            and brilliance.
+                        </p>
+                    </div>
+                </motion.div>
+
+                {/* Layout: Sidebar + Grid */}
+                <div className="flex flex-col gap-8 lg:flex-row">
+                    {/* Sidebar Filters */}
+                    <aside className="w-full lg:w-72 flex-shrink-0 space-y-8">
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                            className="hidden lg:flex flex-col gap-8 rounded-xl bg-[#1A2332] border border-[#2d3b55] p-6 shadow-sm"
+                        >
+                            {/* Sort By */}
+                            <div>
+                                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">
+                                    Sort By
+                                </h3>
+                                <div className="relative">
+                                    <select className="w-full appearance-none rounded-lg border-[#2d3b55] bg-[#101622] py-2.5 pl-3 pr-10 text-sm text-white focus:border-[#1152d4] focus:ring-[#1152d4]">
+                                        <option>Popularity</option>
+                                        <option>Price: Low to High</option>
+                                        <option>Price: High to Low</option>
+                                        <option>Newest Arrivals</option>
+                                    </select>
+                                    <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
+                                        <span className="material-symbols-outlined">expand_more</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Price Range */}
+                            <div>
+                                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">
+                                    Price Range
+                                </h3>
+                                <div className="flex items-center gap-3">
+                                    <div className="relative w-full">
+                                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-gray-500">
+                                            $
+                                        </span>
+                                        <input
+                                            className="w-full rounded-lg border-[#2d3b55] bg-[#101622] py-2 pl-6 pr-2 text-sm text-white focus:border-[#1152d4] focus:ring-[#1152d4]"
+                                            placeholder="Min"
+                                            type="number"
+                                        />
+                                    </div>
+                                    <span className="text-gray-400">-</span>
+                                    <div className="relative w-full">
+                                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-gray-500">
+                                            $
+                                        </span>
+                                        <input
+                                            className="w-full rounded-lg border-[#2d3b55] bg-[#101622] py-2 pl-6 pr-2 text-sm text-white focus:border-[#1152d4] focus:ring-[#1152d4]"
+                                            placeholder="Max"
+                                            type="number"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Gem Type */}
+                            <div>
+                                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">
+                                    Gem Type
+                                </h3>
+                                <div className="flex flex-col gap-2.5">
+                                    {[
+                                        { name: "Blue Sapphire", count: 124 },
+                                        { name: "Pink Sapphire", count: 45 },
+                                        { name: "Ruby", count: 32 },
+                                        { name: "Yellow Sapphire", count: 18 },
+                                        { name: "Spinel", count: 12 },
+                                    ].map((gem) => (
+                                        <label
+                                            key={gem.name}
+                                            className="flex items-center gap-3 cursor-pointer group"
+                                        >
+                                            <input
+                                                className="size-4 rounded border-[#2d3b55] bg-[#101622] text-[#1152d4] focus:ring-[#1152d4]"
+                                                type="checkbox"
+                                                defaultChecked={gem.name === "Blue Sapphire"}
+                                            />
+                                            <span className="text-sm text-gray-300 group-hover:text-[#1152d4] transition-colors">
+                                                {gem.name}
+                                            </span>
+                                            <span className="ml-auto text-xs text-gray-500">
+                                                {gem.count}
+                                            </span>
+                                        </label>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Treatment */}
+                            <div>
+                                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">
+                                    Treatment
+                                </h3>
+                                <div className="flex flex-col gap-2.5">
+                                    <label className="flex items-center gap-3 cursor-pointer group">
+                                        <input
+                                            className="size-4 rounded border-[#2d3b55] bg-[#101622] text-[#1152d4] focus:ring-[#1152d4]"
+                                            type="checkbox"
+                                        />
+                                        <span className="text-sm text-gray-300 group-hover:text-[#1152d4] transition-colors">
+                                            Natural Unheated
+                                        </span>
+                                    </label>
+                                    <label className="flex items-center gap-3 cursor-pointer group">
+                                        <input
+                                            className="size-4 rounded border-[#2d3b55] bg-[#101622] text-[#1152d4] focus:ring-[#1152d4]"
+                                            type="checkbox"
+                                        />
+                                        <span className="text-sm text-gray-300 group-hover:text-[#1152d4] transition-colors">
+                                            Heat Treated
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </aside>
+
+                    {/* Product Grid */}
+                    <div className="flex-1">
+                        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                            {products.map((product, index) => (
+                                <motion.div
+                                    key={product.id}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                                    whileHover={{ y: -5 }}
+                                    className="group relative flex flex-col overflow-hidden rounded-xl bg-[#1A2332] border border-[#2d3b55] transition-all duration-300 hover:shadow-xl hover:shadow-[#1152d4]/5 hover:border-[#1152d4]/30"
+                                >
+                                    <div className="relative aspect-[4/5] overflow-hidden bg-[#0c1018]">
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10" />
+                                        <Image
+                                            src={product.image}
+                                            alt={product.name}
+                                            fill
+                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                        />
+                                        {product.badge && (
+                                            <div className="absolute left-3 top-3 z-20">
+                                                <span
+                                                    className={`inline-flex items-center rounded ${product.badgeColor} px-2 py-1 text-xs font-semibold text-white backdrop-blur-sm`}
+                                                >
+                                                    {product.badge}
+                                                </span>
+                                            </div>
+                                        )}
+                                        <button
+                                            onClick={() => toggleFavorite(product.id)}
+                                            className="absolute right-3 top-3 z-20 flex size-8 items-center justify-center rounded-full bg-black/20 text-white backdrop-blur-sm transition-colors hover:bg-[#1152d4]"
+                                        >
+                                            <span className="material-symbols-outlined text-lg">
+                                                {favorites.includes(product.id)
+                                                    ? "favorite"
+                                                    : "favorite"}
+                                            </span>
+                                        </button>
+                                        {/* Quick Add Button */}
+                                        <motion.button
+                                            initial={{ y: 20, opacity: 0 }}
+                                            whileHover={{ scale: 1.02 }}
+                                            className="absolute bottom-4 left-4 right-4 z-20 translate-y-full rounded-lg bg-white text-slate-900 font-semibold py-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-gray-100"
+                                            onClick={() => handleAddToCart(product)}
+                                        >
+                                            Add to Cart
+                                        </motion.button>
+                                    </div>
+                                    <Link href={`/product/${product.id}`} className="flex flex-col gap-2 p-5">
+                                        <div className="flex items-start justify-between">
+                                            <div>
+                                                <h3 className="text-lg font-bold text-white group-hover:text-[#1152d4] transition-colors">
+                                                    {product.name}
+                                                </h3>
+                                                <p className="text-sm text-gray-500">
+                                                    {product.weight} • {product.cut}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="mt-2 flex items-center justify-between">
+                                            <span className="text-xl font-bold text-white">
+                                                ${product.price.toLocaleString()}
+                                            </span>
+                                            <span
+                                                className={`text-xs font-medium px-2 py-0.5 rounded ${product.treatment === "Natural"
+                                                        ? "text-green-500 bg-green-500/10"
+                                                        : "text-orange-500 bg-orange-500/10"
+                                                    }`}
+                                            >
+                                                {product.treatment}
+                                            </span>
+                                        </div>
+                                    </Link>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {/* Load More Button */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.5 }}
+                            className="mt-12 flex justify-center"
+                        >
+                            <button className="rounded-lg bg-[#1152d4] px-8 py-3 text-sm font-bold text-white transition-transform hover:scale-105 hover:bg-blue-600 focus:ring-4 focus:ring-[#1152d4]/20">
+                                Load More Gems
+                            </button>
+                        </motion.div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    );
+}
