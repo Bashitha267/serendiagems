@@ -1,65 +1,407 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
 import Image from "next/image";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 60 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 },
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const categories = [
+  {
+    id: 1,
+    name: "Blue Sapphire",
+    description: "The Royal Standard of Ceylon",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCTCaY_EkGXz6lrrsqyXZ1rnopMkwq_kPEKnFC3lh_tP68XLmhSUdN5k_KVNCLVC29M4AEhAc4XkxAx6IRDx-746tndvLvYnkGgwr-ffUuZAtUL_rRPk3wOLzGA7x7vOja76c1S2arJyEnEeI9OovOhcocNXwbrruxWGwz_23xfI50BMoyxr86t7qIGx_CqZ-XZDSfFmxEEgAlwCuyBm4jYW1VKFXAwHFtjsZW8SWWeXLSewl8C2FkIVZ7BVA5NME8rjHKweaWRwfWs",
+    featured: true,
+  },
+  {
+    id: 2,
+    name: "Ruby",
+    description: "King of Gems",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAUn8VfJHfHXKAo3TaWOXLrYt9LYpgBdBJ-h9-6aVXLf8RrQuBcyXUp63ComqtsddUokM0FklZWKcXv3yOlOVjuxUv7rY2EtNA2zHsyVFKHZPQRy8es-hkXHY5R4AqitLF-XappCsoYorKhctO4FJI7-r0hb8amysR78FUz8mZQheRNI_KyigfJ1rJEyLGZ2QVGWud4_gL3mDZ7qsmfxGOobo89FnrQScgpDfyal_TvIpQAtVK1T0Y1B31bi_PWfVYRju7Yndaf3W2n",
+    featured: false,
+  },
+  {
+    id: 3,
+    name: "Padparadscha",
+    description: "Lotus Blossom Rarity",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAAX-Avzr-5AFW3w1F6YQBzINYvglGGUtrMQMTtpX4KzH9VLITzT_w3WSbVcd9RdE-HGYe_GOLZdIDeTciqxU90UrZ6P4vpEynfVGYvTu39-vTm_G1OvLcJZU3huYM4AiIWFKiz0BypJUwNEMcxEuuzlVohOw0QcxxV6zfpfGhjAQyBiXgI-65tqk4_GrlgZ6UlEMxsyO1Tvt5dklyQYZZ4VobCl0Tjz0OjNuCvov2-YuV2ic_ikKT1fYJPhOGY497HwPoxkNkuyvz8",
+    featured: false,
+  },
+  {
+    id: 4,
+    name: "Spinel",
+    description: "Vibrant Fire & Brilliance",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuD5wk3QPV2qt77ih5cO3P8TmIrRXH_EMLcy3Pi5HPlt3toMtlNzpMomJMxeiqLtEqgHCjmR9ampeWkxHyCV8Mk_T-8bvuH4_C7ETKuVH66LpHz_kkaBXHmUKirYM0z-qu1h69avDPQX94JiB6GigzAHkkDnB-7alAW1ODWg_HRCIUJVRhT1U-Cv-1gCcuAndXkDwh1Vtg75D7bCDZ5-_UOSFFUBZatpUf-YKUcs6BZQkg_dj8zWsnkdQN9kU04rYRg6EZSp8Zm79D44",
+    featured: false,
+  },
+  {
+    id: 5,
+    name: "Cat's Eye",
+    description: "Mystical Chatoyancy",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuD4U-xog-erq81W9nJpIGKUEndwg2BYbqGQWbFjsz27kOGgB4op6jlnPlzk4YzXLqMt8gQZJ1r7PcpBT6CZRN9nb5xSXlXFIm4hgLbvoTZdHfEqJ-K9QSBg-WkYMGnK4aEih5TQgiKChErFDelOr8B-l5ar6USsOa9U4d4rulZMYfwqKfV8EV0g4-B2skwnYej0NG4OBfOJSfHGqKSFtJix-mGrun3oyC_JijSWXrKj8aflnFwpPLy76DSpajj0RbP4k2_DUzuRUQAq",
+    featured: false,
+  },
+];
+
+const artworks = [
+  {
+    id: 1,
+    name: "The Kandy Royal Necklace",
+    specs: "18k White Gold, 5ct Sapphire",
+    status: "inquire",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBzboHJXeA-ppzIDfi_Lh1hXeEmDxv0n7DcCu7s9ARUlr_FHV0l50BbE5PRHjvF45ngtTbvan4j7mlPrwoXAlQ8K0JFNsZCtSvZi1eszRUcWvpf7Z1wulBP-ficHTShcb-5pz636a8TXhmutHuwaP5DRSxmpB5SpSRJ-hBHn_oiWITmOavwe7-WPFCdil1tkT6eWfEidWtpXbi8oc0gDzLx1lUiSBHdiY8YYhHGgCvxIb4uuJhjYoUluiaGO4_acvWIFYKpHm-ARjqb",
+  },
+  {
+    id: 2,
+    name: "Crimson Sunset Ring",
+    specs: "22k Gold, 2.5ct Ruby",
+    status: "sold",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDOhgpexZ3y-H3tnpyIEDHX9M6ZbiKtQVv51tFLT_ZJsg2UaGnccgUi8jvR_Hjx2S3N9wiIYQgdl4DuEiyDwktN_w2Dz7x2BvVs_4pRMg4Ji4XOBrsvq904LuMqoJuE8TBSI_Hi7dmb0fpNpHO4AtOAx6XvEKxLVB694W29YO_6k8uGkEBUIk_bFwl9Cc7SrIz_JM-C8QvwTsfXMo3dhSC4J9jAWBLJbpD_9Tr3RkY9yNGwl6rHpV4OLcLUZ4Ft78oKKdteXpX91-W5",
+  },
+  {
+    id: 3,
+    name: "Emerald Tear Earrings",
+    specs: "Platinum, 4ct Total",
+    status: "inquire",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuA_U_Qw7hN5Myq02NnxrKV3gE3_K0NQ-ClIHzUm7LtERwWo6sdO1-7aXyTjiVLtHwybdElGj84L_Rj6z3LLX5pcp6Q6poNN3hEqNaAcDt7xF8exINzpRW0N2TIobnlnrl87ViSnrDUMQ-HejhAqgSMvKmVZ-e818-_kbCKR9Kve9WFr_ZOYxFhqwMbtLlD3uwgkCLLrysjsdKODHCFz_W1Sk__sovjgZaFjQpOeRUZLlJuxdXelmN2LWuUL4BSmhaC7nSbY2F71WNjg",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+      {/* Hero Section */}
+      <header className="relative flex min-h-screen items-center justify-center pt-16">
+        <div className="absolute inset-0 z-0">
+          <div
+            className="h-full w-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `linear-gradient(rgba(11, 15, 25, 0.3) 0%, rgba(11, 15, 25, 0.7) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDsBmLFoNu-QM-jHx4OIxxjfVtYIzSuxR883UdMEaFYtQL8UJeahT3OmYiIHwc4MncDE72uZXeFrwCyzBk3KwTnGD2zFa9TIuj81vmYKNjK1QRg4RWkfGzJmWhqwfEqb-79SJxTHSHTqL9zN-YWO65vE0o890OpB8QJyx36dCgb6oMZQFuNg3m2on937pMI4YqMKL2advb3o9FZDTT2faUgqjFHwnSm02OK07XIxLXnj9eFhDUFpgjEFny2IVUkL9C5808Gj6kfQnlX")`,
+            }}
+          />
+          <div className="absolute inset-0 bg-black/20 z-0" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative z-10 flex flex-col items-center text-center max-w-4xl px-4"
+        >
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-white text-5xl md:text-7xl font-serif font-bold leading-tight tracking-tight mb-6 drop-shadow-lg"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            The Heart of Ceylon
+          </motion.h1>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="text-white/90 text-lg md:text-xl font-light leading-relaxed max-w-2xl mb-10 drop-shadow-md"
           >
-            Documentation
-          </a>
-        </div>
-      </main>
+            Ethically mined, expertly cut. Discover the world&apos;s finest
+            Sapphires directly from the source.
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+          >
+            <Link
+              href="/collections"
+              className="group relative flex items-center justify-center overflow-hidden rounded-full bg-[#1152d4] hover:bg-[#1152d4]/90 text-white h-14 px-8 transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(17,82,212,0.5)]"
+            >
+              <span className="text-base font-bold tracking-wide mr-2">
+                Explore Collection
+              </span>
+              <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
+                arrow_forward
+              </span>
+            </Link>
+          </motion.div>
+        </motion.div>
+      </header>
+
+      <div className="layout-container flex grow flex-col max-w-[1440px] mx-auto w-full px-4 md:px-10 lg:px-20 py-16 gap-20">
+        {/* Story Section: Raw to Polished */}
+        <motion.section
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="flex flex-col gap-12"
+        >
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            <motion.div variants={fadeInUp} className="flex flex-col gap-6 flex-1">
+              <span className="text-[#1152d4] font-bold tracking-widest uppercase text-xs">
+                Our Heritage
+              </span>
+              <h2 className="text-white font-serif text-4xl md:text-5xl font-bold leading-tight">
+                From the Earth to Elegance
+              </h2>
+              <p className="text-white/70 text-lg font-light leading-relaxed">
+                Witness the journey of our gemstones, from the rich soils of
+                Ratnapura to the hands of master cutters. We preserve the
+                natural soul of every stone while revealing its inner brilliance
+                through generations of craftsmanship.
+              </p>
+              <Link
+                href="/about"
+                className="flex items-center gap-2 text-[#1152d4] font-bold hover:text-white transition-colors mt-2 w-fit group"
+              >
+                <span>Read Our Story</span>
+                <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">
+                  arrow_forward
+                </span>
+              </Link>
+            </motion.div>
+
+            <motion.div
+              variants={fadeInUp}
+              className="flex-1 grid grid-cols-2 gap-4 w-full"
+            >
+              <div className="flex flex-col gap-3 group">
+                <div
+                  className="w-full aspect-[4/5] bg-cover bg-center rounded-lg overflow-hidden relative shadow-lg"
+                  style={{
+                    backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuDO4hlOoy4ecrdHUi31zyf4TqkucPNoR7EmMHhSZP9lu3f7VFww9qdIcp9e_DnzIwNSnoUQGk0Nhg9nRqWuq7-EoPhIMDKjpgdfMIhzkykKnQ6g3jAbcAyAMyaz7LUjL92WIGGGYRXqyczelDfF-tGPkLs80pj9CJwStlIhpjlobTJrMMnZr3I6DMETsHzw7gdDiD8bhP2V-LmBTjOLaseRrFG4i5qFj3XbTkHprknviMK2J2uYDiZPEsFvXFXnUEWoruo023cQupnZ")`,
+                  }}
+                >
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+                </div>
+                <div>
+                  <p className="text-white text-lg font-serif font-medium">
+                    Ethically Sourced Raw
+                  </p>
+                  <p className="text-white/50 text-sm">
+                    Direct from Ratnapura mines.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-3 group mt-12">
+                <div
+                  className="w-full aspect-[4/5] bg-cover bg-center rounded-lg overflow-hidden relative shadow-lg border border-white/5"
+                  style={{
+                    backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuB8Ml4K9lCp7GNcEvhCKDwTma4WKlpCs8qQxPysEYTEf3R6frWl9JulXIKVikaERzki3yWByL7aQtk5ZjP2QQEX-LLWgkCBpnjMtE6r4aTVzSTrmOc6Xe6_OuIX0Nn0QG5toB1dPw4Byrm2qwgAy37kBInNl_xZ59CNjn27IYExiFcZ2THCArkyf6WhUCWCmly_ORJe55w4GQFyjmzG6u2S7XZlD3UDZpUUTcA7NJHffi2oLsrGDdtnzBISNesmWpBd-GhYQT2q_X6N")`,
+                  }}
+                >
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-[#1152d4]/10 transition-colors duration-500 mix-blend-overlay" />
+                </div>
+                <div>
+                  <p className="text-white text-lg font-serif font-medium">
+                    Masterfully Polished
+                  </p>
+                  <p className="text-white/50 text-sm">
+                    Cut by heritage artisans.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.section>
+
+        {/* Categories Slider */}
+        <motion.section
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="flex flex-col gap-8"
+        >
+          <motion.div
+            variants={fadeInUp}
+            className="flex items-end justify-between border-b border-[#232f48] pb-4"
+          >
+            <h2 className="text-white text-3xl md:text-4xl font-serif font-bold">
+              Gemstone Categories
+            </h2>
+            <div className="flex gap-2">
+              <button className="size-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors">
+                <span className="material-symbols-outlined">chevron_left</span>
+              </button>
+              <button className="size-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors">
+                <span className="material-symbols-outlined">chevron_right</span>
+              </button>
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={fadeInUp}
+            className="flex overflow-x-auto gap-6 no-scrollbar pb-4 snap-x snap-mandatory"
+          >
+            {categories.map((category, index) => (
+              <motion.div
+                key={category.id}
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="flex flex-col gap-4 min-w-[280px] snap-start group cursor-pointer"
+              >
+                <Link href="/collections" className="w-full aspect-[3/4] rounded-xl overflow-hidden relative">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                    style={{ backgroundImage: `url("${category.image}")` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+                  {category.featured && (
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <span className="bg-[#1152d4]/90 text-white text-xs font-bold px-2 py-1 rounded uppercase tracking-wider backdrop-blur-sm">
+                        Featured
+                      </span>
+                    </div>
+                  )}
+                </Link>
+                <div>
+                  <h3 className="text-white text-xl font-serif font-medium group-hover:text-[#1152d4] transition-colors">
+                    {category.name}
+                  </h3>
+                  <p className="text-white/50 text-sm">{category.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.section>
+
+        {/* Artworks / Bespoke Jewelry */}
+        <motion.section
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="flex flex-col gap-10"
+        >
+          <motion.div
+            variants={fadeInUp}
+            className="text-center max-w-2xl mx-auto flex flex-col gap-4"
+          >
+            <span className="text-[#1152d4] font-bold tracking-widest uppercase text-xs">
+              Atelier
+            </span>
+            <h2 className="text-white text-4xl md:text-5xl font-serif font-bold">
+              Bespoke Artworks
+            </h2>
+            <p className="text-white/70">
+              Unique jewelry pieces designed around the soul of our most
+              exceptional stones.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={fadeInUp}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {artworks.map((artwork, index) => (
+              <motion.div
+                key={artwork.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15 }}
+                whileHover={{ y: -5 }}
+                className="group relative bg-[#151c2b] rounded-xl overflow-hidden border border-white/5 hover:border-[#1152d4]/30 transition-colors"
+              >
+                <div className="aspect-square overflow-hidden relative">
+                  <Image
+                    src={artwork.image}
+                    alt={artwork.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-6 flex flex-col gap-2">
+                  <h3 className="text-white text-xl font-serif">
+                    {artwork.name}
+                  </h3>
+                  <div className="flex justify-between items-center mt-2">
+                    <span className="text-white/50 text-sm">{artwork.specs}</span>
+                    {artwork.status === "inquire" ? (
+                      <span className="text-[#1152d4] text-sm font-bold cursor-pointer group-hover:underline">
+                        Inquire
+                      </span>
+                    ) : (
+                      <span className="text-white/40 text-sm font-medium italic">
+                        Sold Out
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div variants={fadeInUp} className="flex justify-center mt-4">
+            <Link
+              href="/collections"
+              className="border border-white/20 text-white px-8 py-3 rounded-full hover:bg-white hover:text-[#0b0f19] transition-colors font-medium text-sm tracking-wide"
+            >
+              View All Masterpieces
+            </Link>
+          </motion.div>
+        </motion.section>
+
+        {/* Luxury Testimonial */}
+        <motion.section
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center justify-center py-10"
+        >
+          <div className="bg-[#151c2b] p-10 md:p-16 rounded-2xl border border-white/5 relative max-w-4xl text-center">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#0b0f19] p-3 rounded-full border border-white/10 text-[#1152d4]">
+              <span className="material-symbols-outlined text-4xl">
+                format_quote
+              </span>
+            </div>
+            <div className="flex justify-center gap-1 mb-6 text-[#FFD700]">
+              {[...Array(5)].map((_, i) => (
+                <span key={i} className="material-symbols-outlined fill-current">
+                  star
+                </span>
+              ))}
+            </div>
+            <blockquote className="text-white text-xl md:text-2xl font-serif italic leading-relaxed mb-8">
+              &quot;The sapphire I purchased from Ceylon Gems is unlike anything
+              I&apos;ve seen in European boutiques. The depth of color and the
+              ethical provenance make it truly priceless.&quot;
+            </blockquote>
+            <div className="flex flex-col items-center gap-1">
+              <cite className="text-white font-bold not-italic">
+                Eleanor Sterling
+              </cite>
+              <span className="text-white/40 text-sm uppercase tracking-wider">
+                London, UK
+              </span>
+            </div>
+          </div>
+        </motion.section>
+      </div>
     </div>
   );
 }
