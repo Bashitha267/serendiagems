@@ -5,77 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "@/context/CartContext";
+import { getAllProducts } from "@/data/productsData";
 
-const products = [
-    {
-        id: "1",
-        name: "Royal Blue Sapphire",
-        weight: "2.14 ct",
-        cut: "Cushion Cut",
-        price: 4250,
-        treatment: "Natural",
-        badge: "New Arrival",
-        badgeColor: "bg-[#1152d4]/90",
-        image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuCG2eVEoI1DlbG6WoeWY-fJHBkCfzSLiI-dAhtr4sU_0GW2FYHIF_pPxpFm3oVGqXOZZFBpQ58Uon-F81aaYkfy_pq1wwP2ajSA7clGOErdIAp9j1dQwjCiGf_aaScWwq5yEbll0Cu8R-h6TEGdb8Ymjauh6WsI02o8NclA0QtBA6YBDzDTOqZWVY73HHF0H5t4C-RBdMGF25Ker_WDQuON-IjGz2HGFWsL0DLdC6F4dUKAEtWK6TgvL56GvhyhHMzX-5phlbymZiVh",
-    },
-    {
-        id: "2",
-        name: "Vivid Pink Sapphire",
-        weight: "1.85 ct",
-        cut: "Oval Cut",
-        price: 3100,
-        treatment: "Heated",
-        badge: null,
-        image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuD5sfdfJiltsSqtGvE9joOFi4Dh_od0RuJU6B2YlKJWzE24608OQFnYC_BW5-4PeSbYKzHqyPAZvo9Q6i1Bwdw7eTLPrU973Syhh2iu932oStYs4uHeibPy7Qfv4LCeSxD3LIc9va-FsHT9PXvY1rAplQdiEBowEcE9ty_sKqAVsMCb6ND8cF10rjN7rgFZbX0Foz_78aHYiTFnengd5ERiZHitV3ZREe4778XuFs9zaNlMDiBcZVQZsmxLtWpbKctj02Uz_eSnhorw",
-    },
-    {
-        id: "3",
-        name: "Burma Ruby",
-        weight: "1.50 ct",
-        cut: "Round Cut",
-        price: 8500,
-        treatment: "Natural",
-        badge: "Rare Find",
-        badgeColor: "bg-rose-600/90",
-        image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuCVxs5ull0jDUMHtPnuxvBBjewTLf1Fj-FSviqCeiDqrZCcXaLqQR4LcHdpi0R2eOAO_x8_GOmxRI6_3iAE3Obap4miXdRap9rK3MBtH6mZ5Fwk6YH-qjb6AWLzkhCv_YESy_jsR7NFAR7e1kMc4cgaqHZk2UpXyxI42oK3LkkR352jAYO8alT_luQWyRGCp0FKSBumZiBylVB4f81iyfZTX4ZFhJOoXUxPsEWVorUqcngLKO5cQN8RD7258SVUo4y6jiNlBCyyoabn",
-    },
-    {
-        id: "4",
-        name: "Canary Yellow Sapphire",
-        weight: "3.05 ct",
-        cut: "Emerald Cut",
-        price: 5900,
-        treatment: "Natural",
-        badge: null,
-        image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuDjv6ImtDP-t7kDwju13E6IKkZ3jfeUtcL5rid5QQQgimdNGkQCG6wv9oZLClEvmKbCU_T1Zel9qRbKyj15vY_k_v6jQbeNpZQVbE9hU1BuznXomNMYQO13jgNJM9EiTt_i9lHSmv59kekCixfa2VbCkppsDxhrnGiFtJsnkUpXrE8RHYblfJ0pXN9xf_J2b_VwZk8IAt8qi1kAlheafHCLxOexYP8Ftk949Ftx4RHItdmLulfFmdS-DDSLNYZyMYYIrSDlu1oSpgeq",
-    },
-    {
-        id: "5",
-        name: "Peacock Teal Sapphire",
-        weight: "1.95 ct",
-        cut: "Radiant Cut",
-        price: 2800,
-        treatment: "Heated",
-        badge: null,
-        image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAEzPVAdFo6FpL8C7hF0agP2j7io8_1pE8ky1bEIsj79zqLE_75fQfU0ojTu7VUnzzEwK-iWt26ZlOPIUGc2Mw6xqRyFgAKnal2j-vK-PmKV4EZ4CGW1VsvNg3h2COYKMzOz4-_UK3tZhDgbO7yGqUWA80Fh-BmlKUjI1VMr3IF19KNbCT6Uh39TlkAVgnQtfifgs8ZWiQHXY507J7Mr9-V-_k8MLc1mR-P7YAS3r1L2QxA01ah9gA94-LPzBI_gYHiLeidQh0XfBAp",
-    },
-    {
-        id: "6",
-        name: "Lavender Spinel",
-        weight: "2.50 ct",
-        cut: "Cushion Cut",
-        price: 1950,
-        treatment: "Natural",
-        badge: null,
-        image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuBmzxa1cH3xwJRwDYpDU-w-6f3z1zo5cxDe79b47UwIA3rN409Z5U8Jc6KeGCjnK3KNdKo_MdM27hzNtJFUV11AvGFWL-1U27J3uV-dV2PSPd8oIAFhoc8TvppX_q97uZWiKzL7e43XvLN986-kroeWk__ibiVMJNPDx1wkIDyJKYh2UIrnUKJMZSeFCCkJji1veENwiRJRqgbLcgg_0ckHpluFJowsomCZKQT6EmyaQViNIE9VkBtvvDIDDtYOPHuI29nhipY2Vji7",
-    },
-];
+const products = getAllProducts();
 
 export default function CollectionsPage() {
     const { addItem, openCart } = useCart();
@@ -92,7 +24,7 @@ export default function CollectionsPage() {
             id: product.id,
             name: product.name,
             price: product.price,
-            image: product.image,
+            image: product.images[0],
             weight: product.weight,
             cut: product.cut,
         });
@@ -267,7 +199,7 @@ export default function CollectionsPage() {
                                     <div className="relative aspect-[4/5] overflow-hidden bg-[#0c1018]">
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10" />
                                         <Image
-                                            src={product.image}
+                                            src={product.images[0]}
                                             alt={product.name}
                                             fill
                                             className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -318,8 +250,8 @@ export default function CollectionsPage() {
                                             </span>
                                             <span
                                                 className={`text-xs font-medium px-2 py-0.5 rounded ${product.treatment === "Natural"
-                                                        ? "text-green-500 bg-green-500/10"
-                                                        : "text-orange-500 bg-orange-500/10"
+                                                    ? "text-green-500 bg-green-500/10"
+                                                    : "text-orange-500 bg-orange-500/10"
                                                     }`}
                                             >
                                                 {product.treatment}
