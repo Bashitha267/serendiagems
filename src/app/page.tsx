@@ -113,7 +113,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-white text-5xl md:text-7xl font-serif font-bold leading-tight tracking-tight mb-6 drop-shadow-lg"
+            className="text-white text-5xl md:text-7xl font-serif font-bold leading-tight tracking-tight mb-6 drop-shadow-2xl"
           >
             The Heart of Ceylon
           </motion.h1>
@@ -121,7 +121,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-white/90 text-lg md:text-xl font-light leading-relaxed max-w-2xl mb-10 drop-shadow-md"
+            className="text-white text-lg md:text-xl font-light leading-relaxed max-w-2xl mb-10 drop-shadow-xl"
           >
             Ethically mined, expertly cut. Discover the world&apos;s finest
             Sapphires directly from the source.
@@ -160,10 +160,10 @@ export default function Home() {
               <span className="text-[#1152d4] font-bold tracking-widest uppercase text-xs">
                 Our Heritage
               </span>
-              <h2 className="text-white font-serif text-4xl md:text-5xl font-bold leading-tight">
+              <h2 className="text-gray-900 font-serif text-4xl md:text-5xl font-bold leading-tight">
                 From the Earth to Elegance
               </h2>
-              <p className="text-white/70 text-lg font-light leading-relaxed">
+              <p className="text-gray-600 text-lg font-light leading-relaxed">
                 Witness the journey of our gemstones, from the rich soils of
                 Ratnapura to the hands of master cutters. We preserve the
                 natural soul of every stone while revealing its inner brilliance
@@ -194,17 +194,17 @@ export default function Home() {
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
                 </div>
                 <div>
-                  <p className="text-white text-lg font-serif font-medium">
+                  <p className="text-gray-900 text-lg font-serif font-medium">
                     Ethically Sourced Raw
                   </p>
-                  <p className="text-white/50 text-sm">
+                  <p className="text-gray-500 text-sm">
                     Direct from Ratnapura mines.
                   </p>
                 </div>
               </div>
               <div className="flex flex-col gap-3 group mt-12">
                 <div
-                  className="w-full aspect-[4/5] bg-cover bg-center rounded-lg overflow-hidden relative shadow-lg border border-white/5"
+                  className="w-full aspect-[4/5] bg-cover bg-center rounded-lg overflow-hidden relative shadow-lg border border-slate-200"
                   style={{
                     backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuB8Ml4K9lCp7GNcEvhCKDwTma4WKlpCs8qQxPysEYTEf3R6frWl9JulXIKVikaERzki3yWByL7aQtk5ZjP2QQEX-LLWgkCBpnjMtE6r4aTVzSTrmOc6Xe6_OuIX0Nn0QG5toB1dPw4Byrm2qwgAy37kBInNl_xZ59CNjn27IYExiFcZ2THCArkyf6WhUCWCmly_ORJe55w4GQFyjmzG6u2S7XZlD3UDZpUUTcA7NJHffi2oLsrGDdtnzBISNesmWpBd-GhYQT2q_X6N")`,
                   }}
@@ -212,10 +212,10 @@ export default function Home() {
                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-[#1152d4]/10 transition-colors duration-500 mix-blend-overlay" />
                 </div>
                 <div>
-                  <p className="text-white text-lg font-serif font-medium">
+                  <p className="text-gray-900 text-lg font-serif font-medium">
                     Masterfully Polished
                   </p>
-                  <p className="text-white/50 text-sm">
+                  <p className="text-gray-500 text-sm">
                     Cut by heritage artisans.
                   </p>
                 </div>
@@ -234,16 +234,16 @@ export default function Home() {
         >
           <motion.div
             variants={fadeInUp}
-            className="flex items-end justify-between border-b border-[#232f48] pb-4"
+            className="flex items-end justify-between border-b border-slate-200 pb-4"
           >
-            <h2 className="text-white text-3xl md:text-4xl font-serif font-bold">
+            <h2 className="text-gray-900 text-3xl md:text-4xl font-serif font-bold">
               Gemstone Categories
             </h2>
             <div className="flex gap-2">
-              <button className="size-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors">
+              <button className="size-10 rounded-full border border-slate-300 flex items-center justify-center text-gray-700 hover:bg-slate-100 transition-colors">
                 <span className="material-symbols-outlined">chevron_left</span>
               </button>
-              <button className="size-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors">
+              <button className="size-10 rounded-full border border-slate-300 flex items-center justify-center text-gray-700 hover:bg-slate-100 transition-colors">
                 <span className="material-symbols-outlined">chevron_right</span>
               </button>
             </div>
@@ -278,10 +278,10 @@ export default function Home() {
                   )}
                 </Link>
                 <div>
-                  <h3 className="text-white text-xl font-serif font-medium group-hover:text-[#1152d4] transition-colors">
+                  <h3 className="text-gray-900 text-xl font-serif font-medium group-hover:text-[#1152d4] transition-colors">
                     {category.name}
                   </h3>
-                  <p className="text-white/50 text-sm">{category.description}</p>
+                  <p className="text-gray-500 text-sm">{category.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -303,10 +303,10 @@ export default function Home() {
             <span className="text-[#1152d4] font-bold tracking-widest uppercase text-xs">
               Atelier
             </span>
-            <h2 className="text-white text-4xl md:text-5xl font-serif font-bold">
+            <h2 className="text-gray-900 text-4xl md:text-5xl font-serif font-bold">
               Bespoke Artworks
             </h2>
-            <p className="text-white/70">
+            <p className="text-gray-600">
               Unique jewelry pieces designed around the soul of our most
               exceptional stones.
             </p>
@@ -324,7 +324,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15 }}
                 whileHover={{ y: -5 }}
-                className="group relative bg-[#151c2b] rounded-xl overflow-hidden border border-white/5 hover:border-[#1152d4]/30 transition-colors"
+                className="group relative bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-[#1152d4]/30 transition-colors shadow-sm"
               >
                 <div className="aspect-square overflow-hidden relative">
                   <Image
@@ -335,17 +335,17 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-6 flex flex-col gap-2">
-                  <h3 className="text-white text-xl font-serif">
+                  <h3 className="text-gray-900 text-xl font-serif">
                     {artwork.name}
                   </h3>
                   <div className="flex justify-between items-center mt-2">
-                    <span className="text-white/50 text-sm">{artwork.specs}</span>
+                    <span className="text-gray-500 text-sm">{artwork.specs}</span>
                     {artwork.status === "inquire" ? (
                       <span className="text-[#1152d4] text-sm font-bold cursor-pointer group-hover:underline">
                         Inquire
                       </span>
                     ) : (
-                      <span className="text-white/40 text-sm font-medium italic">
+                      <span className="text-gray-400 text-sm font-medium italic">
                         Sold Out
                       </span>
                     )}
@@ -358,7 +358,7 @@ export default function Home() {
           <motion.div variants={fadeInUp} className="flex justify-center mt-4">
             <Link
               href="/collections"
-              className="border border-white/20 text-white px-8 py-3 rounded-full hover:bg-white hover:text-[#0b0f19] transition-colors font-medium text-sm tracking-wide"
+              className="border border-slate-300 text-gray-700 px-8 py-3 rounded-full hover:bg-[#1152d4] hover:text-white hover:border-[#1152d4] transition-colors font-medium text-sm tracking-wide"
             >
               View All Masterpieces
             </Link>
@@ -373,8 +373,8 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center justify-center py-10"
         >
-          <div className="bg-[#151c2b] p-10 md:p-16 rounded-2xl border border-white/5 relative max-w-4xl text-center">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#0b0f19] p-3 rounded-full border border-white/10 text-[#1152d4]">
+          <div className="bg-white p-10 md:p-16 rounded-2xl border border-slate-200 relative max-w-4xl text-center shadow-lg">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-50 p-3 rounded-full border border-slate-200 text-[#1152d4]">
               <span className="material-symbols-outlined text-4xl">
                 format_quote
               </span>
@@ -386,16 +386,16 @@ export default function Home() {
                 </span>
               ))}
             </div>
-            <blockquote className="text-white text-xl md:text-2xl font-serif italic leading-relaxed mb-8">
+            <blockquote className="text-gray-900 text-xl md:text-2xl font-serif italic leading-relaxed mb-8">
               &quot;The sapphire I purchased from Ceylon Gems is unlike anything
               I&apos;ve seen in European boutiques. The depth of color and the
               ethical provenance make it truly priceless.&quot;
             </blockquote>
             <div className="flex flex-col items-center gap-1">
-              <cite className="text-white font-bold not-italic">
+              <cite className="text-gray-900 font-bold not-italic">
                 Eleanor Sterling
               </cite>
-              <span className="text-white/40 text-sm uppercase tracking-wider">
+              <span className="text-gray-500 text-sm uppercase tracking-wider">
                 London, UK
               </span>
             </div>

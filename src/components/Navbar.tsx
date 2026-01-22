@@ -37,11 +37,7 @@ export default function Navbar() {
     return (
         <>
             <nav
-                className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-                style={{
-                    backgroundImage: `linear-gradient(rgba(11, 15, 25, 0.95) 0%, rgba(11, 15, 25, 0.9) 100%)`,
-                    backdropFilter: "blur(12px)",
-                }}
+                className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200"
             >
                 <div className="flex items-center justify-between px-4 lg:px-20 py-6 max-w-[1440px] mx-auto w-full">
                     {/* Left Section - Home & Sapphires Dropdown (Desktop) */}
@@ -49,7 +45,7 @@ export default function Navbar() {
                         {/* Home Link */}
                         <Link
                             href="/"
-                            className="text-white hover:text-white/80 text-sm font-medium transition-colors"
+                            className="text-gray-700 hover:text-[#1152d4] text-sm font-medium transition-colors"
                         >
                             Home
                         </Link>
@@ -58,7 +54,7 @@ export default function Navbar() {
                         <div className="relative" ref={dropdownRef}>
                             <button
                                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                                className="flex items-center gap-2 text-white hover:text-white/80 text-sm font-medium transition-colors"
+                                className="flex items-center gap-2 text-gray-700 hover:text-[#1152d4] text-sm font-medium transition-colors"
                             >
                                 <span>Sapphires</span>
                                 <motion.span
@@ -78,7 +74,7 @@ export default function Navbar() {
                                         animate={{ opacity: 1, y: 0, scale: 1 }}
                                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                                         transition={{ duration: 0.2 }}
-                                        className="absolute top-full left-0 mt-3 w-56 bg-[#0b0f19]/95 backdrop-blur-xl border border-[#232f48] rounded-xl shadow-2xl overflow-hidden"
+                                        className="absolute top-full left-0 mt-3 w-56 bg-white backdrop-blur-xl border border-slate-200 rounded-xl shadow-xl overflow-hidden"
                                     >
                                         <div className="py-2">
                                             {gemCategories.map((category) => (
@@ -86,17 +82,17 @@ export default function Navbar() {
                                                     key={category.name}
                                                     href={category.href}
                                                     onClick={() => setDropdownOpen(false)}
-                                                    className="flex items-center px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 transition-colors text-sm"
+                                                    className="flex items-center px-4 py-3 text-gray-700 hover:text-[#1152d4] hover:bg-blue-50 transition-colors text-sm"
                                                 >
 
                                                     {category.name}
                                                 </Link>
                                             ))}
-                                            <div className="border-t border-[#232f48] my-2" />
+                                            <div className="border-t border-slate-200 my-2" />
                                             <Link
                                                 href="/collections"
                                                 onClick={() => setDropdownOpen(false)}
-                                                className="flex items-center px-4 py-3 text-[#1152d4] hover:text-white hover:bg-[#1152d4]/10 transition-colors text-sm font-medium"
+                                                className="flex items-center px-4 py-3 text-[#1152d4] hover:text-blue-700 hover:bg-[#1152d4]/10 transition-colors text-sm font-medium"
                                             >
                                                 <span className="material-symbols-outlined text-lg mr-3">
                                                     arrow_forward
@@ -111,7 +107,7 @@ export default function Navbar() {
                     </div>
 
                     {/* Mobile Left - Logo */}
-                    <Link href="/" className="md:hidden flex items-center gap-3 text-white">
+                    <Link href="/" className="md:hidden flex items-center gap-3 text-gray-900">
                         <Image
                             src="/logo.png"
                             alt="Ceylon Gems Logo"
@@ -119,7 +115,7 @@ export default function Navbar() {
                             height={40}
                             className="rounded-full object-cover"
                         />
-                        <h2 className="text-white text-lg font-serif font-bold tracking-tight">
+                        <h2 className="text-gray-900 text-lg font-serif font-bold tracking-tight">
                             Serendia Gem
                         </h2>
                     </Link>
@@ -127,7 +123,7 @@ export default function Navbar() {
                     {/* Center Logo (Desktop) */}
                     <Link
                         href="/"
-                        className="hidden md:flex items-center gap-4 text-white absolute left-1/2 transform -translate-x-1/2"
+                        className="hidden md:flex items-center gap-4 text-gray-900 absolute left-1/2 transform -translate-x-1/2"
                     >
                         <Image
                             src="/logo.png"
@@ -136,7 +132,7 @@ export default function Navbar() {
                             height={100}
                             className="rounded-full object-contain"
                         />
-                        <h2 className="text-white text-lg font-serif font-bold tracking-tight">
+                        <h2 className="text-gray-900 text-lg font-serif font-bold tracking-tight">
                             Serendia Gems
                         </h2>
                     </Link>
@@ -146,7 +142,7 @@ export default function Navbar() {
                         {/* Contact Us Link (Desktop) */}
                         <Link
                             href="/about#contact"
-                            className="hidden md:flex text-white hover:text-white/80 text-sm font-medium transition-colors"
+                            className="hidden md:flex text-gray-700 hover:text-[#1152d4] text-sm font-medium transition-colors"
                         >
                             Contact Us
                         </Link>
@@ -154,7 +150,7 @@ export default function Navbar() {
                         {/* About Us Link (Desktop) */}
                         <Link
                             href="/about"
-                            className="hidden md:flex text-white hover:text-white/80 text-sm font-medium transition-colors"
+                            className="hidden md:flex text-gray-700 hover:text-[#1152d4] text-sm font-medium transition-colors"
                         >
                             About Us
                         </Link>
@@ -162,11 +158,11 @@ export default function Navbar() {
                         {/* Cart Button with Price */}
                         <button
                             onClick={toggleCart}
-                            className="flex items-center gap-2 text-white hover:text-[#1152d4] transition-colors relative"
+                            className="flex items-center gap-2 text-gray-700 hover:text-[#1152d4] transition-colors relative"
                         >
                             {/* Total Price (Desktop) */}
                             {totalItems > 0 && (
-                                <span className="hidden md:block text-sm font-medium text-white/80">
+                                <span className="hidden md:block text-sm font-medium text-gray-600">
                                     ${totalPrice.toLocaleString()}
                                 </span>
                             )}
@@ -185,7 +181,7 @@ export default function Navbar() {
                         {/* Mobile Menu Button */}
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="md:hidden text-white hover:text-[#1152d4] transition-colors"
+                            className="md:hidden text-gray-700 hover:text-[#1152d4] transition-colors"
                         >
                             <span className="material-symbols-outlined text-2xl">
                                 {mobileMenuOpen ? "close" : "menu"}
@@ -201,12 +197,12 @@ export default function Navbar() {
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
-                            className="md:hidden bg-[#0b0f19] border-t border-[#232f48]"
+                            className="md:hidden bg-white border-t border-slate-200"
                         >
                             <div className="flex flex-col px-6 py-6">
                                 {/* Sapphires Section */}
                                 <div className="mb-4">
-                                    <h3 className="text-white/50 text-xs font-bold uppercase tracking-wider mb-3">
+                                    <h3 className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-3">
                                         Collections
                                     </h3>
                                     <div className="flex flex-col gap-2">
@@ -214,7 +210,7 @@ export default function Navbar() {
                                             <Link
                                                 key={category.name}
                                                 href={category.href}
-                                                className="flex items-center text-white/80 hover:text-white text-base font-medium transition-colors py-2"
+                                                className="flex items-center text-gray-700 hover:text-[#1152d4] text-base font-medium transition-colors py-2"
                                                 onClick={() => setMobileMenuOpen(false)}
                                             >
                                                 <span className="material-symbols-outlined text-[#1152d4] text-lg mr-3">
@@ -226,33 +222,33 @@ export default function Navbar() {
                                     </div>
                                 </div>
 
-                                <div className="border-t border-[#232f48] my-4" />
+                                <div className="border-t border-slate-200 my-4" />
 
                                 {/* Other Links */}
                                 <Link
                                     href="/"
-                                    className="text-white hover:text-[#1152d4] text-base font-medium transition-colors py-2"
+                                    className="text-gray-700 hover:text-[#1152d4] text-base font-medium transition-colors py-2"
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
                                     Home
                                 </Link>
                                 <Link
                                     href="/collections"
-                                    className="text-white hover:text-[#1152d4] text-base font-medium transition-colors py-2"
+                                    className="text-gray-700 hover:text-[#1152d4] text-base font-medium transition-colors py-2"
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
                                     View All Collections
                                 </Link>
                                 <Link
                                     href="/about#contact"
-                                    className="text-white hover:text-[#1152d4] text-base font-medium transition-colors py-2"
+                                    className="text-gray-700 hover:text-[#1152d4] text-base font-medium transition-colors py-2"
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
                                     Contact Us
                                 </Link>
                                 <Link
                                     href="/about"
-                                    className="text-white hover:text-[#1152d4] text-base font-medium transition-colors py-2"
+                                    className="text-gray-700 hover:text-[#1152d4] text-base font-medium transition-colors py-2"
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
                                     About Us

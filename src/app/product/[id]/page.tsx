@@ -24,10 +24,10 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     // If product not found, show 404 or redirect
     if (!product) {
         return (
-            <main className="pt-20 bg-[#0b0f19] min-h-screen flex items-center justify-center">
+            <main className="pt-20 bg-[#F8FAFC] min-h-screen flex items-center justify-center">
                 <div className="text-center">
-                    <h1 className="text-4xl font-bold text-white mb-4">Product Not Found</h1>
-                    <p className="text-gray-400 mb-8">The product you're looking for doesn't exist.</p>
+                    <h1 className="text-4xl font-bold text-gray-900 mb-4">Product Not Found</h1>
+                    <p className="text-gray-600 mb-8">The product you're looking for doesn't exist.</p>
                     <Link
                         href="/collections"
                         className="bg-[#1152d4] text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors"
@@ -52,7 +52,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     };
 
     return (
-        <main className="pt-20 bg-[#0b0f19]">
+        <main className="pt-20 bg-[#F8FAFC]">
             {/* Breadcrumbs */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                 <nav className="flex text-sm text-gray-500">
@@ -142,7 +142,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                     >
                         {/* Title & Price */}
                         <div className="mb-6">
-                            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl font-serif">
+                            <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-serif">
                                 {product.name}
                             </h1>
                             <div className="mt-4 flex items-end gap-4">
@@ -156,54 +156,54 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                         </div>
 
                         {/* Short Description */}
-                        <div className="mt-6 space-y-6 text-gray-400">
+                        <div className="mt-6 space-y-6 text-gray-600">
                             <p className="text-base leading-relaxed">{product.description}</p>
                         </div>
 
                         {/* Key Specs Grid */}
-                        <div className="mt-8 grid grid-cols-2 gap-4 border-y border-gray-800 py-6">
+                        <div className="mt-8 grid grid-cols-2 gap-4 border-y border-slate-200 py-6">
                             <div className="flex items-center gap-3">
-                                <span className="material-symbols-outlined text-gray-500">
+                                <span className="material-symbols-outlined text-gray-400">
                                     scale
                                 </span>
                                 <div>
                                     <p className="text-xs text-gray-500 uppercase tracking-wide">
                                         Weight
                                     </p>
-                                    <p className="font-medium text-white">{product.weight}</p>
+                                    <p className="font-medium text-gray-900">{product.weight}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
-                                <span className="material-symbols-outlined text-gray-500">
+                                <span className="material-symbols-outlined text-gray-400">
                                     public
                                 </span>
                                 <div>
                                     <p className="text-xs text-gray-500 uppercase tracking-wide">
                                         Origin
                                     </p>
-                                    <p className="font-medium text-white">{product.origin}</p>
+                                    <p className="font-medium text-gray-900">{product.origin}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
-                                <span className="material-symbols-outlined text-gray-500">
+                                <span className="material-symbols-outlined text-gray-400">
                                     diamond
                                 </span>
                                 <div>
                                     <p className="text-xs text-gray-500 uppercase tracking-wide">
                                         Shape
                                     </p>
-                                    <p className="font-medium text-white">{product.shape}</p>
+                                    <p className="font-medium text-gray-900">{product.shape}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
-                                <span className="material-symbols-outlined text-gray-500">
+                                <span className="material-symbols-outlined text-gray-400">
                                     science
                                 </span>
                                 <div>
                                     <p className="text-xs text-gray-500 uppercase tracking-wide">
                                         Treatment
                                     </p>
-                                    <p className="font-medium text-white">{product.treatment}</p>
+                                    <p className="font-medium text-gray-900">{product.treatment}</p>
                                 </div>
                             </div>
                         </div>
@@ -214,17 +214,17 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 onClick={handleAddToCart}
-                                className="flex-1 bg-[#1152d4] border border-transparent rounded-lg py-4 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1152d4] shadow-lg shadow-[#1152d4]/30 transition-all"
+                                className="flex-1 bg-[#1152d4] border border-transparent rounded-lg py-4 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1152d4] shadow-lg transition-all"
                             >
                                 <span className="material-symbols-outlined mr-2">
                                     shopping_bag
                                 </span>
                                 Add to Cart
                             </motion.button>
-                            <button className="flex-none bg-gray-800 border border-gray-700 rounded-lg py-4 px-4 flex items-center justify-center text-gray-200 hover:bg-gray-700 transition-all">
+                            <button className="flex-none bg-slate-100 border border-slate-200 rounded-lg py-4 px-4 flex items-center justify-center text-gray-700 hover:bg-slate-200 transition-all">
                                 <span className="material-symbols-outlined">favorite_border</span>
                             </button>
-                            <button className="flex-none bg-gray-800 border border-gray-700 rounded-lg py-4 px-4 flex items-center justify-center text-gray-200 hover:bg-gray-700 transition-all">
+                            <button className="flex-none bg-slate-100 border border-slate-200 rounded-lg py-4 px-4 flex items-center justify-center text-gray-700 hover:bg-slate-200 transition-all">
                                 <span className="material-symbols-outlined">chat</span>
                             </button>
                         </div>
@@ -252,7 +252,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                         </div>
 
                         {/* Accordion Details */}
-                        <div className="mt-10 border-t border-gray-800 pt-6">
+                        <div className="mt-10 border-t border-slate-200 pt-6">
                             <div className="space-y-4">
                                 {/* Description Accordion */}
                                 <details
@@ -262,7 +262,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                     }
                                     className="group"
                                 >
-                                    <summary className="flex cursor-pointer items-center justify-between text-white font-medium list-none">
+                                    <summary className="flex cursor-pointer items-center justify-between text-gray-900 font-medium list-none">
                                         <h2 className="text-lg">Detailed Description</h2>
                                         <span className="material-symbols-outlined transition group-open:rotate-180">
                                             expand_more
@@ -271,8 +271,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                     <motion.div
                                         initial={{ opacity: 0, height: 0 }}
                                         animate={{ opacity: 1, height: "auto" }}
-                                        className="mt-4 text-sm leading-6 text-gray-400"
-                                    >
+                                        className="mt-4 text-sm leading-6 text-gray-600">
                                         <p>{product.description}</p>
                                         {product.clarity && (
                                             <p className="mt-2">
@@ -290,7 +289,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                     </motion.div>
                                 </details>
 
-                                <div className="border-t border-gray-800 my-4" />
+                                <div className="border-t border-slate-200 my-4" />
 
                                 {/* Shipping Accordion */}
                                 <details
@@ -300,13 +299,13 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                     }
                                     className="group"
                                 >
-                                    <summary className="flex cursor-pointer items-center justify-between text-white font-medium list-none">
+                                    <summary className="flex cursor-pointer items-center justify-between text-gray-900 font-medium list-none">
                                         <h2 className="text-lg">Shipping & Returns</h2>
                                         <span className="material-symbols-outlined transition group-open:rotate-180">
                                             expand_more
                                         </span>
                                     </summary>
-                                    <div className="mt-4 text-sm leading-6 text-gray-400">
+                                    <div className="mt-4 text-sm leading-6 text-gray-600">
                                         <p>
                                             We offer complimentary insured shipping worldwide via
                                             FedEx Priority. All shipments are fully insured until they
@@ -327,13 +326,13 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="mt-24 border-t border-gray-800 pt-16"
+                    className="mt-24 border-t border-slate-200 pt-16"
                 >
                     <div className="flex items-center justify-between mb-8">
-                        <h2 className="text-2xl font-bold text-white">Similar Gemstones</h2>
+                        <h2 className="text-2xl font-bold text-gray-900">Similar Gemstones</h2>
                         <Link
                             href="/collections"
-                            className="text-[#1152d4] hover:text-blue-400 font-medium text-sm flex items-center"
+                            className="text-[#1152d4] hover:text-blue-700 font-medium text-sm flex items-center"
                         >
                             View All Sapphires
                             <span className="material-symbols-outlined text-sm ml-1">
@@ -351,9 +350,9 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
                                 whileHover={{ y: -5 }}
-                                className="group relative bg-gray-900 rounded-lg border border-gray-800 overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                                className="group relative bg-white rounded-lg border border-slate-200 overflow-hidden hover:shadow-xl transition-shadow duration-300"
                             >
-                                <div className="aspect-square w-full overflow-hidden bg-gray-800 relative">
+                                <div className="aspect-square w-full overflow-hidden bg-slate-50 relative">
                                     <Image
                                         src={item.images[0]}
                                         alt={item.name}
@@ -362,7 +361,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                     />
                                 </div>
                                 <div className="p-4">
-                                    <h3 className="text-sm font-medium text-white">
+                                    <h3 className="text-sm font-medium text-gray-900">
                                         <Link href={`/product/${item.id}`}>
                                             <span className="absolute inset-0" />
                                             {item.name}

@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" className="light" suppressHydrationWarning>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -36,7 +36,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${playfair.variable} font-sans bg-[#0b0f19] text-white antialiased overflow-x-hidden`}
+        className={`${inter.variable} ${playfair.variable} font-sans bg-[#F8FAFC] text-gray-900 antialiased overflow-x-hidden`}
       >
         <CartProvider>
           <Navbar />

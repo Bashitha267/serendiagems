@@ -13,7 +13,7 @@ const fadeInUp = {
 
 export default function AboutPage() {
     return (
-        <div className="flex flex-col items-center w-full pt-16">
+        <div className="flex flex-col items-center w-full pt-16 bg-[#F8FAFC]">
             {/* Hero Section */}
             <div className="w-full max-w-[1280px] px-4 md:px-10 py-5">
                 <div className="@container">
@@ -83,10 +83,10 @@ export default function AboutPage() {
                                 <span className="w-8 h-[2px] bg-[#1152d4]" />
                                 History
                             </div>
-                            <h2 className="text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">
+                            <h2 className="text-gray-900 text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">
                                 The Ratnapura Legacy
                             </h2>
-                            <p className="text-gray-400 text-base md:text-lg leading-relaxed">
+                            <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                                 Deep within the rich soils of the City of Gems, our story
                                 begins. For over a century, our family has ethically sourced
                                 rough stones directly from the artisanal miners of Ratnapura. We
@@ -117,10 +117,10 @@ export default function AboutPage() {
                                 <span className="w-8 h-[2px] bg-[#1152d4]" />
                                 Craftsmanship
                             </div>
-                            <h2 className="text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">
+                            <h2 className="text-gray-900 text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">
                                 Ethical Sourcing & Precision Cutting
                             </h2>
-                            <p className="text-gray-400 text-base md:text-lg leading-relaxed">
+                            <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                                 Every stone is cut by master lapidaries who preserve the
                                 gem&apos;s soul while maximizing its brilliance. We are
                                 committed to sustainable practices that benefit local
@@ -156,14 +156,14 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="w-full bg-[#182130] mt-10 border-y border-[#232f48]"
+                className="w-full bg-slate-50 mt-10 border-y border-slate-200"
             >
                 <div className="w-full max-w-[1080px] mx-auto px-4 md:px-10 py-16">
                     <div className="mb-12 text-center">
-                        <h2 className="text-white text-3xl font-bold leading-tight tracking-[-0.015em]">
+                        <h2 className="text-gray-900 text-3xl font-bold leading-tight tracking-[-0.015em]">
                             Our Details
                         </h2>
-                        <p className="text-gray-400 mt-2">
+                        <p className="text-gray-600 mt-2">
                             Visit our headquarters or verify our authenticity.
                         </p>
                     </div>
@@ -174,23 +174,23 @@ export default function AboutPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="bg-[#101622] p-6 rounded-xl border border-[#232f48] flex flex-col gap-4"
+                            className="bg-white p-6 rounded-xl border border-slate-200 flex flex-col gap-4 shadow-sm"
                         >
-                            <div className="flex items-center gap-3 text-white font-bold text-lg">
+                            <div className="flex items-center gap-3 text-gray-900 font-bold text-lg">
                                 <span className="material-symbols-outlined text-[#1152d4]">
                                     location_on
                                 </span>
                                 <span>Headquarters</span>
                             </div>
-                            <div className="w-full aspect-video bg-gray-700 rounded-lg overflow-hidden relative">
+                            <div className="w-full aspect-video bg-gray-200 rounded-lg overflow-hidden relative">
                                 <Image
                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv3vZ9NiNnfKygQhnpORz_9oYRwfvExv7J7AfC_SauSE3X3V1HIxkOAfW136kRVD7tHyBLYzfGtjk7ALTcOoFufVdyBh8yuvG3_qHpKGbDq80oW5zisBfZ8NWWNWIG6hFFOcEM2PtfDGI2vTBA7m4iTn9sKC1og3o1KE5TyZPmq3w459-eC55E_J-iDwbrQ5Kt_cNc7vWf47Jf1UIjhxXvOmysp_a7ZwvS2mmHnQs_D0ZqdID6Tc5wG4mJOGifxDaA11QSbO19_cAL"
                                     alt="Map of Colombo, Sri Lanka"
                                     fill
-                                    className="object-cover opacity-80"
+                                    className="object-cover opacity-90"
                                 />
                             </div>
-                            <address className="text-gray-400 not-italic text-sm leading-6">
+                            <address className="text-gray-600 not-italic text-sm leading-6">
                                 123 Gem Street, World Trade Center
                                 <br />
                                 Colombo 01, Sri Lanka
@@ -203,9 +203,9 @@ export default function AboutPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
-                            className="bg-[#101622] p-6 rounded-xl border border-[#232f48] flex flex-col gap-4"
+                            className="bg-white p-6 rounded-xl border border-slate-200 flex flex-col gap-4 shadow-sm"
                         >
-                            <div className="flex items-center gap-3 text-white font-bold text-lg">
+                            <div className="flex items-center gap-3 text-gray-900 font-bold text-lg">
                                 <span className="material-symbols-outlined text-[#1152d4]">
                                     verified
                                 </span>
@@ -213,25 +213,25 @@ export default function AboutPage() {
                             </div>
                             <div className="flex-1 flex flex-col gap-4 justify-center py-4">
                                 <div className="flex items-center gap-4">
-                                    <div className="size-12 rounded-full bg-white/10 flex items-center justify-center text-[#1152d4]">
+                                    <div className="size-12 rounded-full bg-blue-50 flex items-center justify-center text-[#1152d4]">
                                         <span className="material-symbols-outlined">
                                             workspace_premium
                                         </span>
                                     </div>
                                     <div>
-                                        <h4 className="text-white font-medium">NGJA Certified</h4>
-                                        <p className="text-xs text-gray-400">License #88392-A</p>
+                                        <h4 className="text-gray-900 font-medium">NGJA Certified</h4>
+                                        <p className="text-xs text-gray-500">License #88392-A</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-4">
-                                    <div className="size-12 rounded-full bg-white/10 flex items-center justify-center text-[#1152d4]">
+                                    <div className="size-12 rounded-full bg-blue-50 flex items-center justify-center text-[#1152d4]">
                                         <span className="material-symbols-outlined">gavel</span>
                                     </div>
                                     <div>
-                                        <h4 className="text-white font-medium">
+                                        <h4 className="text-gray-900 font-medium">
                                             Fair Trade Gemstones
                                         </h4>
-                                        <p className="text-xs text-gray-400">
+                                        <p className="text-xs text-gray-500">
                                             Ethically sourced pledge
                                         </p>
                                     </div>
@@ -248,9 +248,9 @@ export default function AboutPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.3 }}
-                            className="bg-[#101622] p-6 rounded-xl border border-[#232f48] flex flex-col gap-4"
+                            className="bg-white p-6 rounded-xl border border-slate-200 flex flex-col gap-4 shadow-sm"
                         >
-                            <div className="flex items-center gap-3 text-white font-bold text-lg">
+                            <div className="flex items-center gap-3 text-gray-900 font-bold text-lg">
                                 <span className="material-symbols-outlined text-[#1152d4]">
                                     contact_support
                                 </span>
@@ -258,32 +258,32 @@ export default function AboutPage() {
                             </div>
                             <div className="flex-1 flex flex-col gap-6 py-4">
                                 <div>
-                                    <h4 className="text-gray-400 text-xs uppercase tracking-wider font-bold mb-1">
+                                    <h4 className="text-gray-500 text-xs uppercase tracking-wider font-bold mb-1">
                                         General Inquiries
                                     </h4>
                                     <a
                                         href="mailto:hello@ceylongems.com"
-                                        className="text-white hover:text-[#1152d4] transition-colors text-lg"
+                                        className="text-gray-900 hover:text-[#1152d4] transition-colors text-lg"
                                     >
                                         hello@ceylongems.com
                                     </a>
                                 </div>
                                 <div>
-                                    <h4 className="text-gray-400 text-xs uppercase tracking-wider font-bold mb-1">
+                                    <h4 className="text-gray-500 text-xs uppercase tracking-wider font-bold mb-1">
                                         Concierge (WhatsApp)
                                     </h4>
                                     <a
                                         href="tel:+94112345678"
-                                        className="text-white hover:text-[#1152d4] transition-colors text-lg"
+                                        className="text-gray-900 hover:text-[#1152d4] transition-colors text-lg"
                                     >
                                         +94 11 234 5678
                                     </a>
                                 </div>
                                 <div>
-                                    <h4 className="text-gray-400 text-xs uppercase tracking-wider font-bold mb-1">
+                                    <h4 className="text-gray-500 text-xs uppercase tracking-wider font-bold mb-1">
                                         Hours
                                     </h4>
-                                    <p className="text-gray-300">Mon - Fri: 9am - 6pm (IST)</p>
+                                    <p className="text-gray-700">Mon - Fri: 9am - 6pm (IST)</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -299,12 +299,12 @@ export default function AboutPage() {
                 transition={{ duration: 0.6 }}
                 className="w-full max-w-[800px] px-4 md:px-10 py-20"
             >
-                <div className="bg-[#182130] border border-[#232f48] rounded-2xl p-8 md:p-12 shadow-2xl">
+                <div className="bg-white border border-slate-200 rounded-2xl p-8 md:p-12 shadow-lg">
                     <div className="text-center mb-10">
-                        <h2 className="text-3xl font-black text-white mb-3">
+                        <h2 className="text-3xl font-black text-gray-900 mb-3">
                             Begin Your Journey
                         </h2>
-                        <p className="text-gray-400">
+                        <p className="text-gray-600">
                             Interested in a bespoke piece or a specific stone? Let us know.
                         </p>
                     </div>
@@ -313,7 +313,7 @@ export default function AboutPage() {
                             <div className="space-y-2">
                                 <label
                                     htmlFor="name"
-                                    className="text-sm font-medium text-gray-300"
+                                    className="text-sm font-medium text-gray-700"
                                 >
                                     Full Name
                                 </label>
@@ -321,13 +321,13 @@ export default function AboutPage() {
                                     id="name"
                                     type="text"
                                     placeholder="e.g. John Doe"
-                                    className="w-full rounded-lg bg-[#101622] border border-[#232f48] text-white px-4 py-3 focus:ring-2 focus:ring-[#1152d4] focus:border-transparent outline-none transition-all placeholder-gray-600"
+                                    className="w-full rounded-lg bg-slate-50 border border-slate-300 text-gray-900 px-4 py-3 focus:ring-2 focus:ring-[#1152d4] focus:border-transparent outline-none transition-all placeholder-gray-400"
                                 />
                             </div>
                             <div className="space-y-2">
                                 <label
                                     htmlFor="email"
-                                    className="text-sm font-medium text-gray-300"
+                                    className="text-sm font-medium text-gray-700"
                                 >
                                     Email Address
                                 </label>
@@ -335,20 +335,20 @@ export default function AboutPage() {
                                     id="email"
                                     type="email"
                                     placeholder="e.g. john@example.com"
-                                    className="w-full rounded-lg bg-[#101622] border border-[#232f48] text-white px-4 py-3 focus:ring-2 focus:ring-[#1152d4] focus:border-transparent outline-none transition-all placeholder-gray-600"
+                                    className="w-full rounded-lg bg-slate-50 border border-slate-300 text-gray-900 px-4 py-3 focus:ring-2 focus:ring-[#1152d4] focus:border-transparent outline-none transition-all placeholder-gray-400"
                                 />
                             </div>
                         </div>
                         <div className="space-y-2">
                             <label
                                 htmlFor="subject"
-                                className="text-sm font-medium text-gray-300"
+                                className="text-sm font-medium text-gray-700"
                             >
                                 Inquiry Type
                             </label>
                             <select
                                 id="subject"
-                                className="w-full rounded-lg bg-[#101622] border border-[#232f48] text-white px-4 py-3 focus:ring-2 focus:ring-[#1152d4] focus:border-transparent outline-none transition-all"
+                                className="w-full rounded-lg bg-slate-50 border border-slate-300 text-gray-900 px-4 py-3 focus:ring-2 focus:ring-[#1152d4] focus:border-transparent outline-none transition-all"
                             >
                                 <option>Bespoke Jewelry Design</option>
                                 <option>Loose Gemstone Inquiry</option>
@@ -359,7 +359,7 @@ export default function AboutPage() {
                         <div className="space-y-2">
                             <label
                                 htmlFor="message"
-                                className="text-sm font-medium text-gray-300"
+                                className="text-sm font-medium text-gray-700"
                             >
                                 Message
                             </label>
@@ -367,14 +367,14 @@ export default function AboutPage() {
                                 id="message"
                                 rows={5}
                                 placeholder="Tell us about the stone or design you are looking for..."
-                                className="w-full rounded-lg bg-[#101622] border border-[#232f48] text-white px-4 py-3 focus:ring-2 focus:ring-[#1152d4] focus:border-transparent outline-none transition-all placeholder-gray-600"
+                                className="w-full rounded-lg bg-slate-50 border border-slate-300 text-gray-900 px-4 py-3 focus:ring-2 focus:ring-[#1152d4] focus:border-transparent outline-none transition-all placeholder-gray-400"
                             />
                         </div>
                         <motion.button
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             type="button"
-                            className="w-full bg-[#1152d4] hover:bg-blue-700 text-white font-bold py-4 rounded-lg transition-colors shadow-lg shadow-blue-900/20 text-lg"
+                            className="w-full bg-[#1152d4] hover:bg-blue-700 text-white font-bold py-4 rounded-lg transition-colors shadow-lg text-lg"
                         >
                             Send Inquiry
                         </motion.button>

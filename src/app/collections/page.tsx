@@ -32,7 +32,7 @@ export default function CollectionsPage() {
     };
 
     return (
-        <main className="flex-1 bg-heritage-pattern pt-20">
+        <main className="flex-1 bg-[#F8FAFC] pt-20">
             <div className="mx-auto flex max-w-[1440px] flex-col px-4 py-6 md:px-8 lg:px-12">
                 {/* Breadcrumbs */}
                 <nav className="flex flex-wrap items-center gap-2 pb-6 text-sm text-gray-500">
@@ -42,7 +42,7 @@ export default function CollectionsPage() {
                     <span className="material-symbols-outlined text-[16px]">
                         chevron_right
                     </span>
-                    <span className="font-medium text-white">Collections</span>
+                    <span className="font-medium text-gray-900">Collections</span>
                 </nav>
 
                 {/* Page Heading */}
@@ -53,10 +53,10 @@ export default function CollectionsPage() {
                     className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
                 >
                     <div className="flex max-w-2xl flex-col gap-3">
-                        <h1 className="text-4xl font-black leading-tight tracking-tight text-white lg:text-5xl">
+                        <h1 className="text-4xl font-black leading-tight tracking-tight text-gray-900 lg:text-5xl">
                             The Ceylon Collection
                         </h1>
-                        <p className="text-lg text-gray-400">
+                        <p className="text-lg text-gray-600">
                             Discover our ethically sourced, hand-selected sapphires and rubies
                             from the heart of Sri Lanka. Each stone tells a story of heritage
                             and brilliance.
@@ -72,15 +72,15 @@ export default function CollectionsPage() {
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className="hidden lg:flex flex-col gap-8 rounded-xl bg-[#1A2332] border border-[#2d3b55] p-6 shadow-sm"
+                            className="hidden lg:flex flex-col gap-8 rounded-xl bg-white border border-slate-200 p-6 shadow-sm"
                         >
                             {/* Sort By */}
                             <div>
-                                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">
+                                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-700">
                                     Sort By
                                 </h3>
                                 <div className="relative">
-                                    <select className="w-full appearance-none rounded-lg border-[#2d3b55] bg-[#101622] py-2.5 pl-3 pr-10 text-sm text-white focus:border-[#1152d4] focus:ring-[#1152d4]">
+                                    <select className="w-full appearance-none rounded-lg border-slate-300 bg-slate-50 py-2.5 pl-3 pr-10 text-sm text-gray-900 focus:border-[#1152d4] focus:ring-[#1152d4]">
                                         <option>Popularity</option>
                                         <option>Price: Low to High</option>
                                         <option>Price: High to Low</option>
@@ -94,7 +94,7 @@ export default function CollectionsPage() {
 
                             {/* Price Range */}
                             <div>
-                                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">
+                                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-700">
                                     Price Range
                                 </h3>
                                 <div className="flex items-center gap-3">
@@ -103,7 +103,7 @@ export default function CollectionsPage() {
                                             $
                                         </span>
                                         <input
-                                            className="w-full rounded-lg border-[#2d3b55] bg-[#101622] py-2 pl-6 pr-2 text-sm text-white focus:border-[#1152d4] focus:ring-[#1152d4]"
+                                            className="w-full rounded-lg border-slate-300 bg-slate-50 py-2 pl-6 pr-2 text-sm text-gray-900 focus:border-[#1152d4] focus:ring-[#1152d4]"
                                             placeholder="Min"
                                             type="number"
                                         />
@@ -114,7 +114,7 @@ export default function CollectionsPage() {
                                             $
                                         </span>
                                         <input
-                                            className="w-full rounded-lg border-[#2d3b55] bg-[#101622] py-2 pl-6 pr-2 text-sm text-white focus:border-[#1152d4] focus:ring-[#1152d4]"
+                                            className="w-full rounded-lg border-slate-300 bg-slate-50 py-2 pl-6 pr-2 text-sm text-gray-900 focus:border-[#1152d4] focus:ring-[#1152d4]"
                                             placeholder="Max"
                                             type="number"
                                         />
@@ -124,7 +124,7 @@ export default function CollectionsPage() {
 
                             {/* Gem Type */}
                             <div>
-                                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">
+                                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-700">
                                     Gem Type
                                 </h3>
                                 <div className="flex flex-col gap-2.5">
@@ -140,11 +140,11 @@ export default function CollectionsPage() {
                                             className="flex items-center gap-3 cursor-pointer group"
                                         >
                                             <input
-                                                className="size-4 rounded border-[#2d3b55] bg-[#101622] text-[#1152d4] focus:ring-[#1152d4]"
+                                                className="size-4 rounded border-slate-300 bg-slate-50 text-[#1152d4] focus:ring-[#1152d4]"
                                                 type="checkbox"
                                                 defaultChecked={gem.name === "Blue Sapphire"}
                                             />
-                                            <span className="text-sm text-gray-300 group-hover:text-[#1152d4] transition-colors">
+                                            <span className="text-sm text-gray-700 group-hover:text-[#1152d4] transition-colors">
                                                 {gem.name}
                                             </span>
                                             <span className="ml-auto text-xs text-gray-500">
@@ -157,25 +157,25 @@ export default function CollectionsPage() {
 
                             {/* Treatment */}
                             <div>
-                                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">
+                                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-700">
                                     Treatment
                                 </h3>
                                 <div className="flex flex-col gap-2.5">
                                     <label className="flex items-center gap-3 cursor-pointer group">
                                         <input
-                                            className="size-4 rounded border-[#2d3b55] bg-[#101622] text-[#1152d4] focus:ring-[#1152d4]"
+                                            className="size-4 rounded border-slate-300 bg-slate-50 text-[#1152d4] focus:ring-[#1152d4]"
                                             type="checkbox"
                                         />
-                                        <span className="text-sm text-gray-300 group-hover:text-[#1152d4] transition-colors">
+                                        <span className="text-sm text-gray-700 group-hover:text-[#1152d4] transition-colors">
                                             Natural Unheated
                                         </span>
                                     </label>
                                     <label className="flex items-center gap-3 cursor-pointer group">
                                         <input
-                                            className="size-4 rounded border-[#2d3b55] bg-[#101622] text-[#1152d4] focus:ring-[#1152d4]"
+                                            className="size-4 rounded border-slate-300 bg-slate-50 text-[#1152d4] focus:ring-[#1152d4]"
                                             type="checkbox"
                                         />
-                                        <span className="text-sm text-gray-300 group-hover:text-[#1152d4] transition-colors">
+                                        <span className="text-sm text-gray-700 group-hover:text-[#1152d4] transition-colors">
                                             Heat Treated
                                         </span>
                                     </label>
@@ -194,9 +194,9 @@ export default function CollectionsPage() {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.4, delay: index * 0.1 }}
                                     whileHover={{ y: -5 }}
-                                    className="group relative flex flex-col overflow-hidden rounded-xl bg-[#1A2332] border border-[#2d3b55] transition-all duration-300 hover:shadow-xl hover:shadow-[#1152d4]/5 hover:border-[#1152d4]/30"
+                                    className="group relative flex flex-col overflow-hidden rounded-xl bg-white border border-slate-200 transition-all duration-300 hover:shadow-xl hover:border-[#1152d4]/30"
                                 >
-                                    <div className="relative aspect-[4/5] overflow-hidden bg-[#0c1018]">
+                                    <div className="relative aspect-[4/5] overflow-hidden bg-slate-50">
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10" />
                                         <Image
                                             src={product.images[0]}
@@ -227,7 +227,7 @@ export default function CollectionsPage() {
                                         <motion.button
                                             initial={{ y: 20, opacity: 0 }}
                                             whileHover={{ scale: 1.02 }}
-                                            className="absolute bottom-4 left-4 right-4 z-20 translate-y-full rounded-lg bg-white text-slate-900 font-semibold py-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-gray-100"
+                                            className="absolute bottom-4 left-4 right-4 z-20 translate-y-full rounded-lg bg-[#1152d4] text-white font-semibold py-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-blue-600"
                                             onClick={() => handleAddToCart(product)}
                                         >
                                             Add to Cart
@@ -236,7 +236,7 @@ export default function CollectionsPage() {
                                     <Link href={`/product/${product.id}`} className="flex flex-col gap-2 p-5">
                                         <div className="flex items-start justify-between">
                                             <div>
-                                                <h3 className="text-lg font-bold text-white group-hover:text-[#1152d4] transition-colors">
+                                                <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#1152d4] transition-colors">
                                                     {product.name}
                                                 </h3>
                                                 <p className="text-sm text-gray-500">
@@ -245,7 +245,7 @@ export default function CollectionsPage() {
                                             </div>
                                         </div>
                                         <div className="mt-2 flex items-center justify-between">
-                                            <span className="text-xl font-bold text-white">
+                                            <span className="text-xl font-bold text-gray-900">
                                                 ${product.price.toLocaleString()}
                                             </span>
                                             <span
