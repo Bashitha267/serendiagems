@@ -26,7 +26,7 @@ export default function CartDrawer() {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
                         onClick={closeCart}
-                        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
+                        className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60]"
                     />
 
                     {/* Cart Drawer */}
@@ -35,21 +35,21 @@ export default function CartDrawer() {
                         animate={{ x: 0 }}
                         exit={{ x: "100%" }}
                         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                        className="fixed top-0 right-0 h-full w-full max-w-md bg-[#0b0f19] border-l border-[#232f48] z-[70] flex flex-col shadow-2xl"
+                        className="fixed top-0 right-0 h-full w-full max-w-md bg-white border-l border-gray-200 z-[70] flex flex-col shadow-2xl"
                     >
                         {/* Header */}
-                        <div className="flex items-center justify-between px-6 py-5 border-b border-[#232f48]">
+                        <div className="flex items-center justify-between px-6 py-5 border-b border-gray-200">
                             <div className="flex items-center gap-3">
                                 <span className="material-symbols-outlined text-[#1152d4]">
                                     shopping_bag
                                 </span>
-                                <h2 className="text-white text-lg font-bold">
+                                <h2 className="text-black text-lg font-bold">
                                     Your Cart ({totalItems})
                                 </h2>
                             </div>
                             <button
                                 onClick={closeCart}
-                                className="text-white/60 hover:text-white transition-colors p-1"
+                                className="text-black/60 hover:text-black transition-colors p-1"
                             >
                                 <span className="material-symbols-outlined">close</span>
                             </button>
@@ -63,13 +63,13 @@ export default function CartDrawer() {
                                     animate={{ opacity: 1, y: 0 }}
                                     className="flex flex-col items-center justify-center h-full text-center"
                                 >
-                                    <span className="material-symbols-outlined text-6xl text-[#232f48] mb-4">
+                                    <span className="material-symbols-outlined text-6xl text-gray-300 mb-4">
                                         shopping_bag
                                     </span>
-                                    <h3 className="text-white text-xl font-medium mb-2">
+                                    <h3 className="text-black text-xl font-medium mb-2">
                                         Your cart is empty
                                     </h3>
-                                    <p className="text-white/50 text-sm mb-6">
+                                    <p className="text-black/50 text-sm mb-6">
                                         Discover our exquisite gemstone collection
                                     </p>
                                     <button
@@ -88,7 +88,7 @@ export default function CartDrawer() {
                                             animate={{ opacity: 1, x: 0 }}
                                             exit={{ opacity: 0, x: -50 }}
                                             transition={{ delay: index * 0.1 }}
-                                            className="flex gap-4 bg-[#151c2b] rounded-xl p-4 border border-[#232f48]"
+                                            className="flex gap-4 bg-gray-50 rounded-xl p-4 border border-gray-200"
                                         >
                                             {/* Image */}
                                             <div className="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
@@ -103,17 +103,17 @@ export default function CartDrawer() {
                                             {/* Details */}
                                             <div className="flex-1 flex flex-col justify-between">
                                                 <div>
-                                                    <h3 className="text-white font-medium text-sm">
+                                                    <h3 className="text-black font-medium text-sm">
                                                         {item.name}
                                                     </h3>
-                                                    <p className="text-white/50 text-xs mt-0.5">
+                                                    <p className="text-black/50 text-xs mt-0.5">
                                                         {item.weight} • {item.cut}
                                                     </p>
                                                 </div>
 
                                                 <div className="flex items-center justify-between mt-2">
-                                                    <span className="text-[#1152d4] font-bold">
-                                                        ${item.price.toLocaleString()}
+                                                    <span className="text-[#1152d4] font-bold text-sm">
+                                                        LKR {item.price.toLocaleString()}
                                                     </span>
 
                                                     {/* Quantity Controls */}
@@ -122,20 +122,20 @@ export default function CartDrawer() {
                                                             onClick={() =>
                                                                 updateQuantity(item.id, item.quantity - 1)
                                                             }
-                                                            className="w-7 h-7 rounded-md bg-[#232f48] text-white hover:bg-[#2f3e5e] transition-colors flex items-center justify-center"
+                                                            className="w-7 h-7 rounded-md bg-gray-200 text-black hover:bg-gray-300 transition-colors flex items-center justify-center"
                                                         >
                                                             <span className="material-symbols-outlined text-sm">
                                                                 remove
                                                             </span>
                                                         </button>
-                                                        <span className="text-white text-sm w-6 text-center">
+                                                        <span className="text-black text-sm w-6 text-center">
                                                             {item.quantity}
                                                         </span>
                                                         <button
                                                             onClick={() =>
                                                                 updateQuantity(item.id, item.quantity + 1)
                                                             }
-                                                            className="w-7 h-7 rounded-md bg-[#232f48] text-white hover:bg-[#2f3e5e] transition-colors flex items-center justify-center"
+                                                            className="w-7 h-7 rounded-md bg-gray-200 text-black hover:bg-gray-300 transition-colors flex items-center justify-center"
                                                         >
                                                             <span className="material-symbols-outlined text-sm">
                                                                 add
@@ -148,7 +148,7 @@ export default function CartDrawer() {
                                             {/* Remove Button */}
                                             <button
                                                 onClick={() => removeItem(item.id)}
-                                                className="text-white/40 hover:text-red-500 transition-colors self-start"
+                                                className="text-black/40 hover:text-red-500 transition-colors self-start"
                                             >
                                                 <span className="material-symbols-outlined text-lg">
                                                     delete
@@ -165,18 +165,18 @@ export default function CartDrawer() {
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="border-t border-[#232f48] px-6 py-5"
+                                className="border-t border-gray-200 px-6 py-5"
                             >
                                 {/* Subtotal */}
                                 <div className="flex items-center justify-between mb-4">
-                                    <span className="text-white/60">Subtotal</span>
-                                    <span className="text-white font-bold text-xl">
-                                        ${totalPrice.toLocaleString()}
+                                    <span className="text-black/60">Subtotal</span>
+                                    <span className="text-black font-bold text-xl">
+                                        LKR {totalPrice.toLocaleString()}
                                     </span>
                                 </div>
 
                                 {/* Checkout Button */}
-                                <button className="w-full bg-[#1152d4] hover:bg-blue-600 text-white font-bold py-4 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-900/30">
+                                <button className="w-full bg-[#1152d4] hover:bg-blue-600 text-white font-bold py-4 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#1152d4]/30">
                                     <span>Proceed to Checkout</span>
                                     <span className="material-symbols-outlined text-sm">
                                         arrow_forward
@@ -186,13 +186,13 @@ export default function CartDrawer() {
                                 {/* Continue Shopping */}
                                 <button
                                     onClick={closeCart}
-                                    className="w-full mt-3 text-white/60 hover:text-white text-sm font-medium transition-colors py-2"
+                                    className="w-full mt-3 text-black/60 hover:text-black text-sm font-medium transition-colors py-2"
                                 >
                                     Continue Shopping
                                 </button>
 
                                 {/* Trust Badges */}
-                                <div className="flex items-center justify-center gap-4 mt-4 text-white/40 text-xs">
+                                <div className="flex items-center justify-center gap-4 mt-4 text-black/40 text-xs">
                                     <div className="flex items-center gap-1">
                                         <span className="material-symbols-outlined text-sm text-green-500">
                                             verified
