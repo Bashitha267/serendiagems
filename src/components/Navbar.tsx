@@ -37,9 +37,9 @@ export default function Navbar() {
     return (
         <>
             <nav
-                className="fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-[1400px] mt-8"
+                className="fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-[1400px] mt-4"
             >
-                <div className="bg-white/80 backdrop-blur-xl shadow-lg border border-white/40 rounded-full px-6 lg:px-12 py-4">
+                <div className="bg-white/80 backdrop-blur-xl shadow-lg border border-white/40 rounded-full px-6 lg:px-12 py-5">
                     <div className="flex items-center justify-between w-full">
                         {/* Left Section - Home & Sapphires Dropdown (Desktop) */}
                         <div className="hidden md:flex items-center flex-1 gap-8">
@@ -113,7 +113,7 @@ export default function Navbar() {
                                 alt="Serendia Gems Logo"
                                 width={40}
                                 height={40}
-                                className="object-contain"
+                                className="object-contain rounded-full"
                             />
                             <h2 className="text-gray-900 text-lg font-serif font-bold tracking-tight">
                                 Serendia Gem
@@ -130,7 +130,7 @@ export default function Navbar() {
                                 alt="Serendia Gems Logo"
                                 width={64}
                                 height={64}
-                                className="object-contain"
+                                className="object-contain rounded-full"
                             />
                             <h2 className="text-gray-900 text-lg font-serif font-bold tracking-tight">
                                 Serendia Gems

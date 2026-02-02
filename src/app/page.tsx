@@ -155,8 +155,8 @@ export default function Home() {
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-slate-50">
       {/* Hero Section */}
-      <header className="relative flex min-h-screen items-center justify-center pt-24 pb-8 px-6 md:px-8">
-        <div className="absolute inset-6 md:inset-8 z-0 rounded-3xl overflow-hidden">
+      <header className="relative flex min-h-screen items-center justify-center pt-24 pb-8 px-4 md:px-8">
+        <div className="absolute inset-2 md:inset-4 z-0 rounded-3xl overflow-hidden">
           {/* Slideshow backgrounds */}
           {heroImages.map((image, index) => (
             <div
@@ -195,8 +195,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-white text-lg md:text-xl font-light leading-relaxed max-w-2xl mb-10 drop-shadow-xl"
           >
-            Ethically mined, expertly cut. Discover the world&apos;s finest
-            Sapphires directly from the source.
+            Every sapphire tells a story of Sri Lanka’s rich earth. Discover hand-selected gemstones, ethically mined and precision-cut to capture the island’s light.
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
