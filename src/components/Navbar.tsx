@@ -37,155 +37,157 @@ export default function Navbar() {
     return (
         <>
             <nav
-                className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200"
+                className="fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-[1400px] mt-8"
             >
-                <div className="flex items-center justify-between px-4 lg:px-20 py-6 max-w-[1440px] mx-auto w-full">
-                    {/* Left Section - Home & Sapphires Dropdown (Desktop) */}
-                    <div className="hidden md:flex items-center flex-1 gap-8">
-                        {/* Home Link */}
+                <div className="bg-white/80 backdrop-blur-xl shadow-lg border border-white/40 rounded-full px-6 lg:px-12 py-4">
+                    <div className="flex items-center justify-between w-full">
+                        {/* Left Section - Home & Sapphires Dropdown (Desktop) */}
+                        <div className="hidden md:flex items-center flex-1 gap-8">
+                            {/* Home Link */}
+                            <Link
+                                href="/"
+                                className="text-gray-700 hover:text-[#1152d4] text-sm font-medium transition-colors"
+                            >
+                                Home
+                            </Link>
+
+                            {/* Sapphires Dropdown */}
+                            <div className="relative" ref={dropdownRef}>
+                                <button
+                                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                                    className="flex items-center gap-2 text-gray-700 hover:text-[#1152d4] text-sm font-medium transition-colors"
+                                >
+                                    <span>Sapphires</span>
+                                    <motion.span
+                                        animate={{ rotate: dropdownOpen ? 180 : 0 }}
+                                        transition={{ duration: 0.2 }}
+                                        className="material-symbols-outlined text-lg"
+                                    >
+                                        expand_more
+                                    </motion.span>
+                                </button>
+
+                                {/* Dropdown Menu */}
+                                <AnimatePresence>
+                                    {dropdownOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                            transition={{ duration: 0.2 }}
+                                            className="absolute top-full left-0 mt-3 w-56 bg-white backdrop-blur-xl border border-slate-200 rounded-xl shadow-xl overflow-hidden"
+                                        >
+                                            <div className="py-2">
+                                                {gemCategories.map((category) => (
+                                                    <Link
+                                                        key={category.name}
+                                                        href={category.href}
+                                                        onClick={() => setDropdownOpen(false)}
+                                                        className="flex items-center px-4 py-3 text-gray-700 hover:text-[#1152d4] hover:bg-blue-50 transition-colors text-sm"
+                                                    >
+                                                        {category.name}
+                                                    </Link>
+                                                ))}
+                                                <div className="border-t border-slate-200 my-2" />
+                                                <Link
+                                                    href="/collections"
+                                                    onClick={() => setDropdownOpen(false)}
+                                                    className="flex items-center px-4 py-3 text-[#1152d4] hover:text-blue-700 hover:bg-[#1152d4]/10 transition-colors text-sm font-medium"
+                                                >
+                                                    <span className="material-symbols-outlined text-lg mr-3">
+                                                        arrow_forward
+                                                    </span>
+                                                    View All Collections
+                                                </Link>
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        </div>
+
+                        {/* Mobile Left - Logo */}
+                        <Link href="/" className="md:hidden flex items-center gap-3 text-gray-900">
+                            <Image
+                                src="/logo.jpg"
+                                alt="Serendia Gems Logo"
+                                width={40}
+                                height={40}
+                                className="object-contain"
+                            />
+                            <h2 className="text-gray-900 text-lg font-serif font-bold tracking-tight">
+                                Serendia Gem
+                            </h2>
+                        </Link>
+
+                        {/* Center Logo (Desktop) */}
                         <Link
                             href="/"
-                            className="text-gray-700 hover:text-[#1152d4] text-sm font-medium transition-colors"
+                            className="hidden md:flex items-center gap-4 text-gray-900 absolute left-1/2 transform -translate-x-1/2"
                         >
-                            Home
+                            <Image
+                                src="/logo.jpg"
+                                alt="Serendia Gems Logo"
+                                width={64}
+                                height={64}
+                                className="object-contain"
+                            />
+                            <h2 className="text-gray-900 text-lg font-serif font-bold tracking-tight">
+                                Serendia Gems
+                            </h2>
                         </Link>
 
-                        {/* Sapphires Dropdown */}
-                        <div className="relative" ref={dropdownRef}>
-                            <button
-                                onClick={() => setDropdownOpen(!dropdownOpen)}
-                                className="flex items-center gap-2 text-gray-700 hover:text-[#1152d4] text-sm font-medium transition-colors"
+                        {/* Right Section - Contact Us, About Us & Cart (Desktop) + Mobile Icons */}
+                        <div className="flex items-center gap-6 flex-1 justify-end">
+                            {/* Contact Us Link (Desktop) */}
+                            <Link
+                                href="/about#contact"
+                                className="hidden md:flex text-gray-700 hover:text-[#1152d4] text-sm font-medium transition-colors"
                             >
-                                <span>Sapphires</span>
-                                <motion.span
-                                    animate={{ rotate: dropdownOpen ? 180 : 0 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="material-symbols-outlined text-lg"
-                                >
-                                    expand_more
-                                </motion.span>
+                                Contact Us
+                            </Link>
+
+                            {/* About Us Link (Desktop) */}
+                            <Link
+                                href="/about"
+                                className="hidden md:flex text-gray-700 hover:text-[#1152d4] text-sm font-medium transition-colors"
+                            >
+                                About Us
+                            </Link>
+
+                            {/* Cart Button with Price */}
+                            <button
+                                onClick={toggleCart}
+                                className="flex items-center gap-2 text-gray-700 hover:text-[#1152d4] transition-colors relative"
+                            >
+                                {/* Total Price (Desktop) */}
+                                {totalItems > 0 && (
+                                    <span className="hidden md:block text-sm font-medium text-gray-600">
+                                        ${totalPrice.toLocaleString()}
+                                    </span>
+                                )}
+                                <span className="material-symbols-outlined text-2xl">shopping_bag</span>
+                                {totalItems > 0 && (
+                                    <motion.span
+                                        initial={{ scale: 0 }}
+                                        animate={{ scale: 1 }}
+                                        className="absolute -top-2 -right-2 bg-[#1152d4] text-white text-xs font-bold h-5 w-5 flex items-center justify-center rounded-full"
+                                    >
+                                        {totalItems}
+                                    </motion.span>
+                                )}
                             </button>
 
-                            {/* Dropdown Menu */}
-                            <AnimatePresence>
-                                {dropdownOpen && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                                        transition={{ duration: 0.2 }}
-                                        className="absolute top-full left-0 mt-3 w-56 bg-white backdrop-blur-xl border border-slate-200 rounded-xl shadow-xl overflow-hidden"
-                                    >
-                                        <div className="py-2">
-                                            {gemCategories.map((category) => (
-                                                <Link
-                                                    key={category.name}
-                                                    href={category.href}
-                                                    onClick={() => setDropdownOpen(false)}
-                                                    className="flex items-center px-4 py-3 text-gray-700 hover:text-[#1152d4] hover:bg-blue-50 transition-colors text-sm"
-                                                >
-                                                    {category.name}
-                                                </Link>
-                                            ))}
-                                            <div className="border-t border-slate-200 my-2" />
-                                            <Link
-                                                href="/collections"
-                                                onClick={() => setDropdownOpen(false)}
-                                                className="flex items-center px-4 py-3 text-[#1152d4] hover:text-blue-700 hover:bg-[#1152d4]/10 transition-colors text-sm font-medium"
-                                            >
-                                                <span className="material-symbols-outlined text-lg mr-3">
-                                                    arrow_forward
-                                                </span>
-                                                View All Collections
-                                            </Link>
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
-                    </div>
-
-                    {/* Mobile Left - Logo */}
-                    <Link href="/" className="md:hidden flex items-center gap-3 text-gray-900">
-                        <Image
-                            src="/logo.jpg"
-                            alt="Serendia Gems Logo"
-                            width={40}
-                            height={40}
-                            className="object-contain"
-                        />
-                        <h2 className="text-gray-900 text-lg font-serif font-bold tracking-tight">
-                            Serendia Gem
-                        </h2>
-                    </Link>
-
-                    {/* Center Logo (Desktop) */}
-                    <Link
-                        href="/"
-                        className="hidden md:flex items-center gap-4 text-gray-900 absolute left-1/2 transform -translate-x-1/2"
-                    >
-                        <Image
-                            src="/logo.jpg"
-                            alt="Serendia Gems Logo"
-                            width={64}
-                            height={64}
-                            className="object-contain"
-                        />
-                        <h2 className="text-gray-900 text-lg font-serif font-bold tracking-tight">
-                            Serendia Gems
-                        </h2>
-                    </Link>
-
-                    {/* Right Section - Contact Us, About Us & Cart (Desktop) + Mobile Icons */}
-                    <div className="flex items-center gap-6 flex-1 justify-end">
-                        {/* Contact Us Link (Desktop) */}
-                        <Link
-                            href="/about#contact"
-                            className="hidden md:flex text-gray-700 hover:text-[#1152d4] text-sm font-medium transition-colors"
-                        >
-                            Contact Us
-                        </Link>
-
-                        {/* About Us Link (Desktop) */}
-                        <Link
-                            href="/about"
-                            className="hidden md:flex text-gray-700 hover:text-[#1152d4] text-sm font-medium transition-colors"
-                        >
-                            About Us
-                        </Link>
-
-                        {/* Cart Button with Price */}
-                        <button
-                            onClick={toggleCart}
-                            className="flex items-center gap-2 text-gray-700 hover:text-[#1152d4] transition-colors relative"
-                        >
-                            {/* Total Price (Desktop) */}
-                            {totalItems > 0 && (
-                                <span className="hidden md:block text-sm font-medium text-gray-600">
-                                    ${totalPrice.toLocaleString()}
+                            {/* Mobile Menu Button */}
+                            <button
+                                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                                className="md:hidden text-gray-700 hover:text-[#1152d4] transition-colors"
+                            >
+                                <span className="material-symbols-outlined text-2xl">
+                                    {mobileMenuOpen ? "close" : "menu"}
                                 </span>
-                            )}
-                            <span className="material-symbols-outlined text-2xl">shopping_bag</span>
-                            {totalItems > 0 && (
-                                <motion.span
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: 1 }}
-                                    className="absolute -top-2 -right-2 bg-[#1152d4] text-white text-xs font-bold h-5 w-5 flex items-center justify-center rounded-full"
-                                >
-                                    {totalItems}
-                                </motion.span>
-                            )}
-                        </button>
-
-                        {/* Mobile Menu Button */}
-                        <button
-                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="md:hidden text-gray-700 hover:text-[#1152d4] transition-colors"
-                        >
-                            <span className="material-symbols-outlined text-2xl">
-                                {mobileMenuOpen ? "close" : "menu"}
-                            </span>
-                        </button>
+                            </button>
+                        </div>
                     </div>
                 </div>
 

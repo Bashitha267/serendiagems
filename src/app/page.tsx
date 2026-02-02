@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -134,17 +134,44 @@ const artworks = [
 ];
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const heroImages = [
+    "/hero/hero.jpeg",
+    "/hero/hero1.jpeg",
+    "/hero/hero3.jpeg",
+    "/hero/hero4.jpeg",
+  ];
+
+  // Automatic slideshow
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(timer);
+  }, [heroImages.length]);
+
   return (
-    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-slate-50">
       {/* Hero Section */}
-      <header className="relative flex min-h-screen items-center justify-center pt-16">
-        <div className="absolute inset-0 z-0">
-          <div
-            className="h-full w-full bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: `linear-gradient(rgba(11, 15, 25, 0.3) 0%, rgba(11, 15, 25, 0.7) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDsBmLFoNu-QM-jHx4OIxxjfVtYIzSuxR883UdMEaFYtQL8UJeahT3OmYiIHwc4MncDE72uZXeFrwCyzBk3KwTnGD2zFa9TIuj81vmYKNjK1QRg4RWkfGzJmWhqwfEqb-79SJxTHSHTqL9zN-YWO65vE0o890OpB8QJyx36dCgb6oMZQFuNg3m2on937pMI4YqMKL2advb3o9FZDTT2faUgqjFHwnSm02OK07XIxLXnj9eFhDUFpgjEFny2IVUkL9C5808Gj6kfQnlX")`,
-            }}
-          />
+      <header className="relative flex min-h-screen items-center justify-center pt-24 pb-8 px-6 md:px-8">
+        <div className="absolute inset-6 md:inset-8 z-0 rounded-3xl overflow-hidden">
+          {/* Slideshow backgrounds */}
+          {heroImages.map((image, index) => (
+            <div
+              key={image}
+              className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"
+                }`}
+            >
+              <div
+                className="h-full w-full bg-cover bg-center bg-no-repeat"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(11, 15, 25, 0.3) 0%, rgba(11, 15, 25, 0.7) 100%), url("${image}")`,
+                }}
+              />
+            </div>
+          ))}
           <div className="absolute inset-0 bg-black/20 z-0" />
         </div>
 
@@ -152,7 +179,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative z-10 flex flex-col items-center text-center max-w-4xl px-4"
+          className="relative z-10 flex flex-col items-start text-left max-w-4xl px-4 md:px-10 lg:px-20 w-full"
         >
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -190,6 +217,115 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </header>
+
+      {/* Features Section */}
+      <section className="bg-slate-50 py-12 border-y border-slate-200">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-10 lg:px-20">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
+            {/* Natural Gemstones */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="flex flex-col items-center text-center gap-3"
+            >
+              <div className="w-12 h-12 flex items-center justify-center text-[#1152d4]">
+                <span className="material-symbols-outlined text-4xl">diamond</span>
+              </div>
+              <div>
+                <h3 className="text-gray-900 font-bold text-sm mb-1">Natural Gemstones</h3>
+                <p className="text-gray-500 text-xs uppercase tracking-wide">Unheated & Untreated</p>
+              </div>
+            </motion.div>
+
+            {/* Lab Certified */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="flex flex-col items-center text-center gap-3"
+            >
+              <div className="w-12 h-12 flex items-center justify-center text-[#1152d4]">
+                <span className="material-symbols-outlined text-4xl">verified</span>
+              </div>
+              <div>
+                <h3 className="text-gray-900 font-bold text-sm mb-1">Lab Certified</h3>
+                <p className="text-gray-500 text-xs uppercase tracking-wide">Get Authenticity Proof</p>
+              </div>
+            </motion.div>
+
+            {/* Affordable Range */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-col items-center text-center gap-3"
+            >
+              <div className="w-12 h-12 flex items-center justify-center text-[#1152d4]">
+                <span className="material-symbols-outlined text-4xl">sell</span>
+              </div>
+              <div>
+                <h3 className="text-gray-900 font-bold text-sm mb-1">Affordable Range</h3>
+                <p className="text-gray-500 text-xs uppercase tracking-wide">Wide Variety</p>
+              </div>
+            </motion.div>
+
+            {/* 100% Payment Secure */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="flex flex-col items-center text-center gap-3"
+            >
+              <div className="w-12 h-12 flex items-center justify-center text-[#1152d4]">
+                <span className="material-symbols-outlined text-4xl">shield</span>
+              </div>
+              <div>
+                <h3 className="text-gray-900 font-bold text-sm mb-1">100% Payment Secure</h3>
+                <p className="text-gray-500 text-xs uppercase tracking-wide">Secure Payment</p>
+              </div>
+            </motion.div>
+
+            {/* World Wide Shipping */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="flex flex-col items-center text-center gap-3"
+            >
+              <div className="w-12 h-12 flex items-center justify-center text-[#1152d4]">
+                <span className="material-symbols-outlined text-4xl">public</span>
+              </div>
+              <div>
+                <h3 className="text-gray-900 font-bold text-sm mb-1">World Wide Shipping</h3>
+                <p className="text-gray-500 text-xs uppercase tracking-wide">Global Delivery</p>
+              </div>
+            </motion.div>
+
+            {/* 100% Pure */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+              className="flex flex-col items-center text-center gap-3"
+            >
+              <div className="w-12 h-12 flex items-center justify-center text-[#1152d4]">
+                <span className="material-symbols-outlined text-4xl">package_2</span>
+              </div>
+              <div>
+                <h3 className="text-gray-900 font-bold text-sm mb-1">100% Pure</h3>
+                <p className="text-gray-500 text-xs uppercase tracking-wide">Direct from Mine</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       <div className="layout-container flex grow flex-col max-w-[1440px] mx-auto w-full px-4 md:px-10 lg:px-20 py-16 gap-20">
         {/* Story Section: Raw to Polished */}
