@@ -26,6 +26,7 @@ export default function AboutPage() {
                             backgroundImage: `linear-gradient(rgba(16, 22, 34, 0.4) 0%, rgba(16, 22, 34, 0.7) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBYvmlCtu9ssqJC4pCAXsrEBCxhHOMBU9QtOgMh6dmJzCKhYJv7u-zRO9BGyKQrBqFzkp93JI3QD7y3fqQuiqoa7PWTuTidi0_Ia_CedVSIxJQalYJ2rEdlXjA3c2PrBIxxXmsGyQCtHUeQfX6k46forE_fPWx_T78vdYpscAVQkTOJhTlLBXFoStVZBfITeXkgApVEaZoZDdjDGT1WzOOerTmiuu3rN6sKdhwPVBHDl_XrSYym7yuLTV7X4kMRwK2Wi1kAvNX5f-X7")`,
                         }}
                     >
+                        {/* hii */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
