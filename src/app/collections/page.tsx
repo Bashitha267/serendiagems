@@ -145,7 +145,7 @@ export default function CollectionsPage() {
     };
 
     return (
-        <main className="flex-1 bg-heritage-pattern pt-20">
+        <main className="flex-1 bg-[#F8FAFC] pt-20">
             <div className="mx-auto flex max-w-[1440px] flex-col px-4 py-6 md:px-8 lg:px-12">
                 {/* Breadcrumbs & Mobile Filter */}
                 <div className="flex items-center justify-between pb-6">
@@ -328,18 +328,6 @@ export default function CollectionsPage() {
                                 </motion.div>
                             ))}
                         </div>
-
-                        {/* Load More Button */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.5 }}
-                            className="mt-12 flex justify-center"
-                        >
-                            <button className="rounded-lg bg-[#1152d4] px-8 py-3 text-sm font-bold text-white transition-transform hover:scale-105 hover:bg-blue-600 focus:ring-4 focus:ring-[#1152d4]/20">
-                                Load More Gems
-                            </button>
-                        </motion.div>
                     </div>
                 </div>
             </div>

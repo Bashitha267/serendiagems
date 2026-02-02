@@ -149,7 +149,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                         {/* Key Specs Grid */}
                         <div className="mt-8 grid grid-cols-2 gap-4 border-y border-gray-200 py-6">
                             <div className="flex items-center gap-3">
-                                <span className="material-symbols-outlined text-gray-500">
+                                <span className="material-symbols-outlined text-gray-400">
                                     scale
                                 </span>
                                 <div>
@@ -160,7 +160,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
-                                <span className="material-symbols-outlined text-gray-500">
+                                <span className="material-symbols-outlined text-gray-400">
                                     public
                                 </span>
                                 <div>
@@ -171,7 +171,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
-                                <span className="material-symbols-outlined text-gray-500">
+                                <span className="material-symbols-outlined text-gray-400">
                                     diamond
                                 </span>
                                 <div>
@@ -182,7 +182,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
-                                <span className="material-symbols-outlined text-gray-500">
+                                <span className="material-symbols-outlined text-gray-400">
                                     science
                                 </span>
                                 <div>

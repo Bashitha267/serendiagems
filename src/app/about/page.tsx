@@ -13,7 +13,7 @@ const fadeInUp = {
 
 export default function AboutPage() {
     return (
-        <div className="flex flex-col items-center w-full pt-16">
+        <div className="flex flex-col items-center w-full pt-16 bg-[#F8FAFC]">
             {/* Hero Section */}
             <div className="w-full max-w-[1280px] px-4 md:px-10 py-5">
                 <div className="@container">
@@ -26,14 +26,14 @@ export default function AboutPage() {
                             backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBYvmlCtu9ssqJC4pCAXsrEBCxhHOMBU9QtOgMh6dmJzCKhYJv7u-zRO9BGyKQrBqFzkp93JI3QD7y3fqQuiqoa7PWTuTidi0_Ia_CedVSIxJQalYJ2rEdlXjA3c2PrBIxxXmsGyQCtHUeQfX6k46forE_fPWx_T78vdYpscAVQkTOJhTlLBXFoStVZBfITeXkgApVEaZoZDdjDGT1WzOOerTmiuu3rN6sKdhwPVBHDl_XrSYym7yuLTV7X4kMRwK2Wi1kAvNX5f-X7")`,
                         }}
                     >
+                        {/* hii */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.3 }}
                             className="flex flex-col gap-4 text-center max-w-[800px] z-10"
                         >
-                            <h1 className="text-black text-5xl md:text-6xl font-black leading-tight tracking-[-0.033em] drop-shadow-lg">
-                                Unearthing Ceylon&apos;s Finest Treasures
+
                             </h1>
                             <h2 className="text-black/80 text-lg md:text-xl font-normal leading-relaxed max-w-2xl mx-auto drop-shadow-md">
                                 For generations, we have been the bridge between the rich soils
@@ -187,7 +187,7 @@ export default function AboutPage() {
                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv3vZ9NiNnfKygQhnpORz_9oYRwfvExv7J7AfC_SauSE3X3V1HIxkOAfW136kRVD7tHyBLYzfGtjk7ALTcOoFufVdyBh8yuvG3_qHpKGbDq80oW5zisBfZ8NWWNWIG6hFFOcEM2PtfDGI2vTBA7m4iTn9sKC1og3o1KE5TyZPmq3w459-eC55E_J-iDwbrQ5Kt_cNc7vWf47Jf1UIjhxXvOmysp_a7ZwvS2mmHnQs_D0ZqdID6Tc5wG4mJOGifxDaA11QSbO19_cAL"
                                     alt="Map of Colombo, Sri Lanka"
                                     fill
-                                    className="object-cover opacity-80"
+                                    className="object-cover opacity-90"
                                 />
                             </div>
                             <address className="text-gray-600 not-italic text-sm leading-6">
@@ -265,7 +265,7 @@ export default function AboutPage() {
                                         href="mailto:hello@ceylongems.com"
                                         className="text-black hover:text-[#1152d4] transition-colors text-lg"
                                     >
-                                        hello@ceylongems.com
+                                        hello@serendiagems.com
                                     </a>
                                 </div>
                                 <div>

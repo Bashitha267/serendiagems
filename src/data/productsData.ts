@@ -57,9 +57,6 @@ export const productsData: Record<string, Product> = {
         category: "Pink Sapphire",
         images: [
             "https://lh3.googleusercontent.com/aida-public/AB6AXuD5sfdfJiltsSqtGvE9joOFi4Dh_od0RuJU6B2YlKJWzE24608OQFnYC_BW5-4PeSbYKzHqyPAZvo9Q6i1Bwdw7eTLPrU973Syhh2iu932oStYs4uHeibPy7Qfv4LCeSxD3LIc9va-FsHT9PXvY1rAplQdiEBowEcE9ty_sKqAVsMCb6ND8cF10rjN7rgFZbX0Foz_78aHYiTFnengd5ERiZHitV3ZREe4778XuFs9zaNlMDiBcZVQZsmxLtWpbKctj02Uz_eSnhorw",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuD5sfdfJiltsSqtGvE9joOFi4Dh_od0RuJU6B2YlKJWzE24608OQFnYC_BW5-4PeSbYKzHqyPAZvo9Q6i1Bwdw7eTLPrU973Syhh2iu932oStYs4uHeibPy7Qfv4LCeSxD3LIc9va-FsHT9PXvY1rAplQdiEBowEcE9ty_sKqAVsMCb6ND8cF10rjN7rgFZbX0Foz_78aHYiTFnengd5ERiZHitV3ZREe4778XuFs9zaNlMDiBcZVQZsmxLtWpbKctj02Uz_eSnhorw",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuD5sfdfJiltsSqtGvE9joOFi4Dh_od0RuJU6B2YlKJWzE24608OQFnYC_BW5-4PeSbYKzHqyPAZvo9Q6i1Bwdw7eTLPrU973Syhh2iu932oStYs4uHeibPy7Qfv4LCeSxD3LIc9va-FsHT9PXvY1rAplQdiEBowEcE9ty_sKqAVsMCb6ND8cF10rjN7rgFZbX0Foz_78aHYiTFnengd5ERiZHitV3ZREe4778XuFs9zaNlMDiBcZVQZsmxLtWpbKctj02Uz_eSnhorw",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuD5sfdfJiltsSqtGvE9joOFi4Dh_od0RuJU6B2YlKJWzE24608OQFnYC_BW5-4PeSbYKzHqyPAZvo9Q6i1Bwdw7eTLPrU973Syhh2iu932oStYs4uHeibPy7Qfv4LCeSxD3LIc9va-FsHT9PXvY1rAplQdiEBowEcE9ty_sKqAVsMCb6ND8cF10rjN7rgFZbX0Foz_78aHYiTFnengd5ERiZHitV3ZREe4778XuFs9zaNlMDiBcZVQZsmxLtWpbKctj02Uz_eSnhorw",
         ],
     },
 
@@ -80,9 +77,6 @@ export const productsData: Record<string, Product> = {
         category: "Yellow Sapphire",
         images: [
             "https://lh3.googleusercontent.com/aida-public/AB6AXuDjv6ImtDP-t7kDwju13E6IKkZ3jfeUtcL5rid5QQQgimdNGkQCG6wv9oZLClEvmKbCU_T1Zel9qRbKyj15vY_k_v6jQbeNpZQVbE9hU1BuznXomNMYQO13jgNJM9EiTt_i9lHSmv59kekCixfa2VbCkppsDxhrnGiFtJsnkUpXrE8RHYblfJ0pXN9xf_J2b_VwZk8IAt8qi1kAlheafHCLxOexYP8Ftk949Ftx4RHItdmLulfFmdS-DDSLNYZyMYYIrSDlu1oSpgeq",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuDjv6ImtDP-t7kDwju13E6IKkZ3jfeUtcL5rid5QQQgimdNGkQCG6wv9oZLClEvmKbCU_T1Zel9qRbKyj15vY_k_v6jQbeNpZQVbE9hU1BuznXomNMYQO13jgNJM9EiTt_i9lHSmv59kekCixfa2VbCkppsDxhrnGiFtJsnkUpXrE8RHYblfJ0pXN9xf_J2b_VwZk8IAt8qi1kAlheafHCLxOexYP8Ftk949Ftx4RHItdmLulfFmdS-DDSLNYZyMYYIrSDlu1oSpgeq",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuDjv6ImtDP-t7kDwju13E6IKkZ3jfeUtcL5rid5QQQgimdNGkQCG6wv9oZLClEvmKbCU_T1Zel9qRbKyj15vY_k_v6jQbeNpZQVbE9hU1BuznXomNMYQO13jgNJM9EiTt_i9lHSmv59kekCixfa2VbCkppsDxhrnGiFtJsnkUpXrE8RHYblfJ0pXN9xf_J2b_VwZk8IAt8qi1kAlheafHCLxOexYP8Ftk949Ftx4RHItdmLulfFmdS-DDSLNYZyMYYIrSDlu1oSpgeq",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuDjv6ImtDP-t7kDwju13E6IKkZ3jfeUtcL5rid5QQQgimdNGkQCG6wv9oZLClEvmKbCU_T1Zel9qRbKyj15vY_k_v6jQbeNpZQVbE9hU1BuznXomNMYQO13jgNJM9EiTt_i9lHSmv59kekCixfa2VbCkppsDxhrnGiFtJsnkUpXrE8RHYblfJ0pXN9xf_J2b_VwZk8IAt8qi1kAlheafHCLxOexYP8Ftk949Ftx4RHItdmLulfFmdS-DDSLNYZyMYYIrSDlu1oSpgeq",
         ],
     },
     "5": {
@@ -102,9 +96,6 @@ export const productsData: Record<string, Product> = {
         category: "Teal Sapphire",
         images: [
             "https://lh3.googleusercontent.com/aida-public/AB6AXuAEzPVAdFo6FpL8C7hF0agP2j7io8_1pE8ky1bEIsj79zqLE_75fQfU0ojTu7VUnzzEwK-iWt26ZlOPIUGc2Mw6xqRyFgAKnal2j-vK-PmKV4EZ4CGW1VsvNg3h2COYKMzOz4-_UK3tZhDgbO7yGqUWA80Fh-BmlKUjI1VMr3IF19KNbCT6Uh39TlkAVgnQtfifgs8ZWiQHXY507J7Mr9-V-_k8MLc1mR-P7YAS3r1L2QxA01ah9gA94-LPzBI_gYHiLeidQh0XfBAp",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAEzPVAdFo6FpL8C7hF0agP2j7io8_1pE8ky1bEIsj79zqLE_75fQfU0ojTu7VUnzzEwK-iWt26ZlOPIUGc2Mw6xqRyFgAKnal2j-vK-PmKV4EZ4CGW1VsvNg3h2COYKMzOz4-_UK3tZhDgbO7yGqUWA80Fh-BmlKUjI1VMr3IF19KNbCT6Uh39TlkAVgnQtfifgs8ZWiQHXY507J7Mr9-V-_k8MLc1mR-P7YAS3r1L2QxA01ah9gA94-LPzBI_gYHiLeidQh0XfBAp",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAEzPVAdFo6FpL8C7hF0agP2j7io8_1pE8ky1bEIsj79zqLE_75fQfU0ojTu7VUnzzEwK-iWt26ZlOPIUGc2Mw6xqRyFgAKnal2j-vK-PmKV4EZ4CGW1VsvNg3h2COYKMzOz4-_UK3tZhDgbO7yGqUWA80Fh-BmlKUjI1VMr3IF19KNbCT6Uh39TlkAVgnQtfifgs8ZWiQHXY507J7Mr9-V-_k8MLc1mR-P7YAS3r1L2QxA01ah9gA94-LPzBI_gYHiLeidQh0XfBAp",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAEzPVAdFo6FpL8C7hF0agP2j7io8_1pE8ky1bEIsj79zqLE_75fQfU0ojTu7VUnzzEwK-iWt26ZlOPIUGc2Mw6xqRyFgAKnal2j-vK-PmKV4EZ4CGW1VsvNg3h2COYKMzOz4-_UK3tZhDgbO7yGqUWA80Fh-BmlKUjI1VMr3IF19KNbCT6Uh39TlkAVgnQtfifgs8ZWiQHXY507J7Mr9-V-_k8MLc1mR-P7YAS3r1L2QxA01ah9gA94-LPzBI_gYHiLeidQh0XfBAp",
         ],
     },
     "6": {
@@ -123,9 +114,6 @@ export const productsData: Record<string, Product> = {
         badge: null,
         category: "Spinel",
         images: [
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuBmzxa1cH3xwJRwDYpDU-w-6f3z1zo5cxDe79b47UwIA3rN409Z5U8Jc6KeGCjnK3KNdKo_MdM27hzNtJFUV11AvGFWL-1U27J3uV-dV2PSPd8oIAFhoc8TvppX_q97uZWiKzL7e43XvLN986-kroeWk__ibiVMJNPDx1wkIDyJKYh2UIrnUKJMZSeFCCkJji1veENwiRJRqgbLcgg_0ckHpluFJowsomCZKQT6EmyaQViNIE9VkBtvvDIDDtYOPHuI29nhipY2Vji7",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuBmzxa1cH3xwJRwDYpDU-w-6f3z1zo5cxDe79b47UwIA3rN409Z5U8Jc6KeGCjnK3KNdKo_MdM27hzNtJFUV11AvGFWL-1U27J3uV-dV2PSPd8oIAFhoc8TvppX_q97uZWiKzL7e43XvLN986-kroeWk__ibiVMJNPDx1wkIDyJKYh2UIrnUKJMZSeFCCkJji1veENwiRJRqgbLcgg_0ckHpluFJowsomCZKQT6EmyaQViNIE9VkBtvvDIDDtYOPHuI29nhipY2Vji7",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuBmzxa1cH3xwJRwDYpDU-w-6f3z1zo5cxDe79b47UwIA3rN409Z5U8Jc6KeGCjnK3KNdKo_MdM27hzNtJFUV11AvGFWL-1U27J3uV-dV2PSPd8oIAFhoc8TvppX_q97uZWiKzL7e43XvLN986-kroeWk__ibiVMJNPDx1wkIDyJKYh2UIrnUKJMZSeFCCkJji1veENwiRJRqgbLcgg_0ckHpluFJowsomCZKQT6EmyaQViNIE9VkBtvvDIDDtYOPHuI29nhipY2Vji7",
             "https://lh3.googleusercontent.com/aida-public/AB6AXuBmzxa1cH3xwJRwDYpDU-w-6f3z1zo5cxDe79b47UwIA3rN409Z5U8Jc6KeGCjnK3KNdKo_MdM27hzNtJFUV11AvGFWL-1U27J3uV-dV2PSPd8oIAFhoc8TvppX_q97uZWiKzL7e43XvLN986-kroeWk__ibiVMJNPDx1wkIDyJKYh2UIrnUKJMZSeFCCkJji1veENwiRJRqgbLcgg_0ckHpluFJowsomCZKQT6EmyaQViNIE9VkBtvvDIDDtYOPHuI29nhipY2Vji7",
         ],
     },

@@ -61,36 +61,56 @@ export default function Navbar() {
                                 onClick={() => setDropdownOpen(!dropdownOpen)}
                                 className="flex items-center gap-2 text-black hover:text-black/60 text-sm font-medium transition-colors"
                             >
-                                <span>Sapphires</span>
-                                <motion.span
-                                    animate={{ rotate: dropdownOpen ? 180 : 0 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="material-symbols-outlined text-lg"
-                                >
-                                    expand_more
-                                </motion.span>
-                            </button>
+                                Home
+                            </Link>
 
-                            {/* Dropdown Menu */}
-                            <AnimatePresence>
-                                {dropdownOpen && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                            {/* Sapphires Dropdown */}
+                            <div className="relative" ref={dropdownRef}>
+                                <button
+                                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                                    className="flex items-center gap-2 text-gray-700 hover:text-[#1152d4] text-sm font-medium transition-colors"
+                                >
+                                    <span>Sapphires</span>
+                                    <motion.span
+                                        animate={{ rotate: dropdownOpen ? 180 : 0 }}
                                         transition={{ duration: 0.2 }}
                                         className="absolute top-full left-0 mt-3 w-56 bg-white/95 backdrop-blur-xl border border-gray-200 rounded-xl shadow-2xl overflow-hidden"
                                     >
-                                        <div className="py-2">
-                                            {gemCategories.map((category) => (
+                                        expand_more
+                                    </motion.span>
+                                </button>
+
+                                {/* Dropdown Menu */}
+                                <AnimatePresence>
+                                    {dropdownOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                            transition={{ duration: 0.2 }}
+                                            className="absolute top-full left-0 mt-3 w-56 bg-white backdrop-blur-xl border border-slate-200 rounded-xl shadow-xl overflow-hidden"
+                                        >
+                                            <div className="py-2">
+                                                {gemCategories.map((category) => (
+                                                    <Link
+                                                        key={category.name}
+                                                        href={category.href}
+                                                        onClick={() => setDropdownOpen(false)}
+                                                        className="flex items-center px-4 py-3 text-gray-700 hover:text-[#1152d4] hover:bg-blue-50 transition-colors text-sm"
+                                                    >
+                                                        {category.name}
+                                                    </Link>
+                                                ))}
+                                                <div className="border-t border-slate-200 my-2" />
                                                 <Link
-                                                    key={category.name}
-                                                    href={category.href}
+                                                    href="/collections"
                                                     onClick={() => setDropdownOpen(false)}
                                                     className="flex items-center px-4 py-3 text-black/70 hover:text-black hover:bg-black/5 transition-colors text-sm"
                                                 >
-
-                                                    {category.name}
+                                                    <span className="material-symbols-outlined text-lg mr-3">
+                                                        arrow_forward
+                                                    </span>
+                                                    View All Collections
                                                 </Link>
                                             ))}
                                             <div className="border-t border-gray-200 my-2" />
@@ -152,12 +172,21 @@ export default function Navbar() {
                             Contact Us
                         </Link>
 
-                        {/* About Us Link (Desktop) */}
+                        {/* Center Logo (Desktop) */}
                         <Link
                             href="/about"
                             className="hidden md:flex text-black hover:text-black/60 text-sm font-medium transition-colors"
                         >
-                            About Us
+                            <Image
+                                src="/logo.jpg"
+                                alt="Serendia Gems Logo"
+                                width={64}
+                                height={64}
+                                className="object-contain rounded-full"
+                            />
+                            <h2 className="text-gray-900 text-lg font-serif font-bold tracking-tight">
+                                Serendia Gems
+                            </h2>
                         </Link>
 
                         {/* Cart Button with Price */}
