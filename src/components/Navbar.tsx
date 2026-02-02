@@ -84,7 +84,6 @@ export default function Navbar() {
                                                     onClick={() => setDropdownOpen(false)}
                                                     className="flex items-center px-4 py-3 text-gray-700 hover:text-[#1152d4] hover:bg-blue-50 transition-colors text-sm"
                                                 >
-
                                                     {category.name}
                                                 </Link>
                                             ))}
@@ -109,11 +108,11 @@ export default function Navbar() {
                     {/* Mobile Left - Logo */}
                     <Link href="/" className="md:hidden flex items-center gap-3 text-gray-900">
                         <Image
-                            src="/logo.png"
-                            alt="Ceylon Gems Logo"
+                            src="/logo.jpg"
+                            alt="Serendia Gems Logo"
                             width={40}
                             height={40}
-                            className="rounded-full object-cover"
+                            className="object-contain"
                         />
                         <h2 className="text-gray-900 text-lg font-serif font-bold tracking-tight">
                             Serendia Gem
@@ -126,11 +125,11 @@ export default function Navbar() {
                         className="hidden md:flex items-center gap-4 text-gray-900 absolute left-1/2 transform -translate-x-1/2"
                     >
                         <Image
-                            src="/logo.png"
-                            alt="Ceylon Gems Logo"
+                            src="/logo.jpg"
+                            alt="Serendia Gems Logo"
                             width={64}
-                            height={100}
-                            className="rounded-full object-contain"
+                            height={64}
+                            className="object-contain"
                         />
                         <h2 className="text-gray-900 text-lg font-serif font-bold tracking-tight">
                             Serendia Gems

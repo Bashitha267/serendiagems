@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -17,6 +18,50 @@ const staggerContainer = {
     },
   },
 };
+
+// FAQ Item Component
+function FAQItem({ question, answer }: { question: string; answer: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-[#1152d4]/30 transition-colors"
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between p-6 text-left"
+      >
+        <h3 className="text-gray-900 font-medium text-lg pr-4">{question}</h3>
+        <motion.span
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+          className="material-symbols-outlined text-[#1152d4] flex-shrink-0"
+        >
+          expand_more
+        </motion.span>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-6 pt-0">
+              <p className="text-gray-600 leading-relaxed">{answer}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
 
 const categories = [
   {
@@ -115,7 +160,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-white text-5xl md:text-7xl font-serif font-bold leading-tight tracking-tight mb-6 drop-shadow-2xl"
           >
-            The Heart of Ceylon
+            The Heart of Sri Lanka
           </motion.h1>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -234,19 +279,11 @@ export default function Home() {
         >
           <motion.div
             variants={fadeInUp}
-            className="flex items-end justify-between border-b border-slate-200 pb-4"
+            className="border-b border-slate-200 pb-4"
           >
             <h2 className="text-gray-900 text-3xl md:text-4xl font-serif font-bold">
               Gemstone Categories
             </h2>
-            <div className="flex gap-2">
-              <button className="size-10 rounded-full border border-slate-300 flex items-center justify-center text-gray-700 hover:bg-slate-100 transition-colors">
-                <span className="material-symbols-outlined">chevron_left</span>
-              </button>
-              <button className="size-10 rounded-full border border-slate-300 flex items-center justify-center text-gray-700 hover:bg-slate-100 transition-colors">
-                <span className="material-symbols-outlined">chevron_right</span>
-              </button>
-            </div>
           </motion.div>
 
           <motion.div
@@ -387,7 +424,7 @@ export default function Home() {
               ))}
             </div>
             <blockquote className="text-gray-900 text-xl md:text-2xl font-serif italic leading-relaxed mb-8">
-              &quot;The sapphire I purchased from Ceylon Gems is unlike anything
+              &quot;The sapphire I purchased from Serendia Gems is unlike anything
               I&apos;ve seen in European boutiques. The depth of color and the
               ethical provenance make it truly priceless.&quot;
             </blockquote>
@@ -398,6 +435,53 @@ export default function Home() {
               <span className="text-gray-500 text-sm uppercase tracking-wider">
                 London, UK
               </span>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* FAQ Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center py-20"
+        >
+          <div className="max-w-3xl w-full">
+            <div className="text-center mb-12">
+              <span className="text-[#1152d4] font-bold tracking-widest uppercase text-xs">
+                Common Questions
+              </span>
+              <h2 className="text-gray-900 text-4xl md:text-5xl font-serif font-bold mt-3">
+                Frequently Asked Questions
+              </h2>
+            </div>
+
+            <div className="space-y-4">
+              <FAQItem
+                question="Are your gemstones natural and treated?"
+                answer="All our gemstones are 100% natural. We clearly disclose any treatments. The majority of our collection consists of unheated and untreated stones, directly sourced from mines."
+              />
+              <FAQItem
+                question="Do you provide certification?"
+                answer="Yes, every gemstone comes with a certificate of authenticity from reputable gemological laboratories. We ensure transparency in every purchase."
+              />
+              <FAQItem
+                question="What is your return policy?"
+                answer="We offer a 30-day money-back guarantee. If you are not completely satisfied with your purchase, you can return it for a full refund or exchange, provided it is in its original condition."
+              />
+              <FAQItem
+                question="Do you ship internationally?"
+                answer="Yes, we offer secure, insured worldwide shipping. Shipping times vary by location, but we strive to deliver your precious gems as safely and quickly as possible."
+              />
+              <FAQItem
+                question="Can I request a custom jewelry design?"
+                answer="Absolutely! We specialize in bespoke jewelry design. Our master craftsmen can create unique pieces around the gemstone of your choice. Contact us to discuss your vision."
+              />
+              <FAQItem
+                question="How do I care for my gemstones?"
+                answer="Store your gemstones separately in soft pouches, clean them with mild soap and water, and avoid exposure to harsh chemicals. We provide detailed care instructions with every purchase."
+              />
             </div>
           </div>
         </motion.section>

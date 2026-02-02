@@ -54,7 +54,7 @@ export default function CollectionsPage() {
                 >
                     <div className="flex max-w-2xl flex-col gap-3">
                         <h1 className="text-4xl font-black leading-tight tracking-tight text-gray-900 lg:text-5xl">
-                            The Ceylon Collection
+                            The Serendia Collection
                         </h1>
                         <p className="text-lg text-gray-600">
                             Discover our ethically sourced, hand-selected sapphires and rubies
@@ -65,125 +65,7 @@ export default function CollectionsPage() {
                 </motion.div>
 
                 {/* Layout: Sidebar + Grid */}
-                <div className="flex flex-col gap-8 lg:flex-row">
-                    {/* Sidebar Filters */}
-                    <aside className="w-full lg:w-72 flex-shrink-0 space-y-8">
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            className="hidden lg:flex flex-col gap-8 rounded-xl bg-white border border-slate-200 p-6 shadow-sm"
-                        >
-                            {/* Sort By */}
-                            <div>
-                                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-700">
-                                    Sort By
-                                </h3>
-                                <div className="relative">
-                                    <select className="w-full appearance-none rounded-lg border-slate-300 bg-slate-50 py-2.5 pl-3 pr-10 text-sm text-gray-900 focus:border-[#1152d4] focus:ring-[#1152d4]">
-                                        <option>Popularity</option>
-                                        <option>Price: Low to High</option>
-                                        <option>Price: High to Low</option>
-                                        <option>Newest Arrivals</option>
-                                    </select>
-                                    <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
-                                        <span className="material-symbols-outlined">expand_more</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Price Range */}
-                            <div>
-                                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-700">
-                                    Price Range
-                                </h3>
-                                <div className="flex items-center gap-3">
-                                    <div className="relative w-full">
-                                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-gray-500">
-                                            $
-                                        </span>
-                                        <input
-                                            className="w-full rounded-lg border-slate-300 bg-slate-50 py-2 pl-6 pr-2 text-sm text-gray-900 focus:border-[#1152d4] focus:ring-[#1152d4]"
-                                            placeholder="Min"
-                                            type="number"
-                                        />
-                                    </div>
-                                    <span className="text-gray-400">-</span>
-                                    <div className="relative w-full">
-                                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-gray-500">
-                                            $
-                                        </span>
-                                        <input
-                                            className="w-full rounded-lg border-slate-300 bg-slate-50 py-2 pl-6 pr-2 text-sm text-gray-900 focus:border-[#1152d4] focus:ring-[#1152d4]"
-                                            placeholder="Max"
-                                            type="number"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Gem Type */}
-                            <div>
-                                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-700">
-                                    Gem Type
-                                </h3>
-                                <div className="flex flex-col gap-2.5">
-                                    {[
-                                        { name: "Blue Sapphire", count: 124 },
-                                        { name: "Pink Sapphire", count: 45 },
-                                        { name: "Ruby", count: 32 },
-                                        { name: "Yellow Sapphire", count: 18 },
-                                        { name: "Spinel", count: 12 },
-                                    ].map((gem) => (
-                                        <label
-                                            key={gem.name}
-                                            className="flex items-center gap-3 cursor-pointer group"
-                                        >
-                                            <input
-                                                className="size-4 rounded border-slate-300 bg-slate-50 text-[#1152d4] focus:ring-[#1152d4]"
-                                                type="checkbox"
-                                                defaultChecked={gem.name === "Blue Sapphire"}
-                                            />
-                                            <span className="text-sm text-gray-700 group-hover:text-[#1152d4] transition-colors">
-                                                {gem.name}
-                                            </span>
-                                            <span className="ml-auto text-xs text-gray-500">
-                                                {gem.count}
-                                            </span>
-                                        </label>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Treatment */}
-                            <div>
-                                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-700">
-                                    Treatment
-                                </h3>
-                                <div className="flex flex-col gap-2.5">
-                                    <label className="flex items-center gap-3 cursor-pointer group">
-                                        <input
-                                            className="size-4 rounded border-slate-300 bg-slate-50 text-[#1152d4] focus:ring-[#1152d4]"
-                                            type="checkbox"
-                                        />
-                                        <span className="text-sm text-gray-700 group-hover:text-[#1152d4] transition-colors">
-                                            Natural Unheated
-                                        </span>
-                                    </label>
-                                    <label className="flex items-center gap-3 cursor-pointer group">
-                                        <input
-                                            className="size-4 rounded border-slate-300 bg-slate-50 text-[#1152d4] focus:ring-[#1152d4]"
-                                            type="checkbox"
-                                        />
-                                        <span className="text-sm text-gray-700 group-hover:text-[#1152d4] transition-colors">
-                                            Heat Treated
-                                        </span>
-                                    </label>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </aside>
-
+                <div className="w-full">
                     {/* Product Grid */}
                     <div className="flex-1">
                         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -261,18 +143,6 @@ export default function CollectionsPage() {
                                 </motion.div>
                             ))}
                         </div>
-
-                        {/* Load More Button */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.5 }}
-                            className="mt-12 flex justify-center"
-                        >
-                            <button className="rounded-lg bg-[#1152d4] px-8 py-3 text-sm font-bold text-white transition-transform hover:scale-105 hover:bg-blue-600 focus:ring-4 focus:ring-[#1152d4]/20">
-                                Load More Gems
-                            </button>
-                        </motion.div>
                     </div>
                 </div>
             </div>

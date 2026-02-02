@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
     return (
@@ -8,21 +9,14 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="flex flex-col gap-6">
                         <div className="flex items-center gap-3 text-gray-900">
-                            <div className="size-6 text-[#1152d4]">
-                                <svg
-                                    fill="none"
-                                    viewBox="0 0 48 48"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M24 2L8 18L24 46L40 18L24 2Z"
-                                        stroke="currentColor"
-                                        strokeLinejoin="round"
-                                        strokeWidth="4"
-                                    />
-                                </svg>
-                            </div>
-                            <h2 className="text-xl font-serif font-bold">Ceylon Gems</h2>
+                            <Image
+                                src="/logo.jpg"
+                                alt="Serendia Gems Logo"
+                                width={48}
+                                height={48}
+                                className="object-contain"
+                            />
+                            <h2 className="text-xl font-serif font-bold">Serendia Gems</h2>
                         </div>
                         <p className="text-gray-600 text-sm leading-relaxed">
                             Exporting the finest Sri Lankan gemstones to the world with
@@ -131,7 +125,7 @@ export default function Footer() {
 
                 <div className="border-t border-slate-200 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-gray-400 text-xs">
-                        © 2024 Ceylon Gems. All rights reserved.
+                        © 2024 Serendia Gems. All rights reserved.
                     </p>
                     <div className="flex gap-6">
                         <span className="text-gray-400 text-xs hover:text-[#1152d4] cursor-pointer transition-colors">

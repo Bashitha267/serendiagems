@@ -18,7 +18,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Ceylon Gems - The Heart of Ceylon",
+  title: "Serendia Gems | Heart of Sri Lanka",
   description: "Ethically mined, expertly cut. Discover the world's finest Sapphires directly from the source.",
 };
 

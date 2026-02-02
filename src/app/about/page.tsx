@@ -33,7 +33,7 @@ export default function AboutPage() {
                             className="flex flex-col gap-4 text-center max-w-[800px] z-10"
                         >
                             <h1 className="text-white text-5xl md:text-6xl font-black leading-tight tracking-[-0.033em] drop-shadow-lg">
-                                Unearthing Ceylon&apos;s Finest Treasures
+                                Unearthing Sri Lanka&apos;s Finest Treasures
                             </h1>
                             <h2 className="text-gray-200 text-lg md:text-xl font-normal leading-relaxed max-w-2xl mx-auto drop-shadow-md">
                                 For generations, we have been the bridge between the rich soils
@@ -265,7 +265,7 @@ export default function AboutPage() {
                                         href="mailto:hello@ceylongems.com"
                                         className="text-gray-900 hover:text-[#1152d4] transition-colors text-lg"
                                     >
-                                        hello@ceylongems.com
+                                        hello@serendiagems.com
                                     </a>
                                 </div>
                                 <div>

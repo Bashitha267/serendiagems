@@ -54,9 +54,3 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
-/* Heritage pattern background */
-.bg-heritage-pattern {
-  background-image: radial-gradient(#bfdbfe 1px, transparent 1px);
-  background-size: 32px 32px;
-}
