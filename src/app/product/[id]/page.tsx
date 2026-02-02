@@ -1,12 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "@/context/CartContext";
 import { use } from "react";
 import { getProductById, getSimilarProducts } from "@/data/productsData";
+
+// Swiper imports
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
 export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params);
@@ -24,9 +29,9 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     // If product not found, show 404 or redirect
     if (!product) {
         return (
-            <main className="pt-20 bg-[#F8FAFC] min-h-screen flex items-center justify-center">
+            <main className="pt-20 bg-white min-h-screen flex items-center justify-center">
                 <div className="text-center">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-4">Product Not Found</h1>
+                    <h1 className="text-4xl font-bold text-black mb-4">Product Not Found</h1>
                     <p className="text-gray-600 mb-8">The product you're looking for doesn't exist.</p>
                     <Link
                         href="/collections"
@@ -52,7 +57,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     };
 
     return (
-        <main className="pt-20 bg-[#F8FAFC]">
+        <main className="mt:pt-20 pt-28  bg-white">
             {/* Breadcrumbs */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                 <nav className="flex text-sm text-gray-500">
@@ -77,7 +82,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                 <span className="material-symbols-outlined text-base mx-1">
                                     chevron_right
                                 </span>
-                                <span className="text-white font-medium">{product.name}</span>
+                                <span className="text-black font-medium">{product.name}</span>
                             </div>
                         </li>
                     </ol>
@@ -88,34 +93,22 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div className="lg:grid lg:grid-cols-2 lg:gap-x-12 lg:items-start">
                     {/* Left Column: Image Gallery */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="flex flex-col gap-4"
-                    >
+                    <div className="flex flex-col gap-4">
                         {/* Main Image */}
-                        <div className="aspect-[4/3] rounded-lg bg-gray-800 overflow-hidden relative group">
+                        <div className="aspect-[4/3] rounded-lg bg-gray-100 overflow-hidden relative group">
                             <Image
                                 src={product.images[selectedImage]}
                                 alt={product.name}
                                 fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-500 cursor-zoom-in"
+                                className="object-cover cursor-zoom-in"
                             />
-                            <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                                <span className="material-symbols-outlined text-xl">
-                                    zoom_in
-                                </span>
-                            </div>
                         </div>
 
                         {/* Thumbnails */}
                         <div className="grid grid-cols-4 gap-4">
                             {product.images.map((image, index) => (
-                                <motion.button
+                                <button
                                     key={index}
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
                                     onClick={() => setSelectedImage(index)}
                                     className={`relative aspect-square rounded-lg overflow-hidden ${selectedImage === index
                                         ? "border-2 border-[#1152d4] ring-2 ring-[#1152d4]/20"
@@ -128,30 +121,23 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                         fill
                                         className="object-cover hover:opacity-75 transition-opacity"
                                     />
-                                </motion.button>
+                                </button>
                             ))}
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Right Column: Product Info */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="mt-10 px-0 sm:mt-16 lg:mt-0 lg:sticky lg:top-24"
-                    >
+                    <div className="mt-10 px-0 sm:mt-16 lg:mt-0 lg:sticky lg:top-24">
                         {/* Title & Price */}
                         <div className="mb-6">
-                            <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-serif">
+                            <h1 className="text-2xl font-bold tracking-tight text-black sm:text-4xl font-serif leading-tight">
                                 {product.name}
                             </h1>
                             <div className="mt-4 flex items-end gap-4">
-                                <p className="text-3xl font-semibold text-[#1152d4]">
-                                    ${product.price.toLocaleString()}.00
+                                <p className="text-xl text-2xl font-semibold text-[#1152d4]">
+                                    LKR {product.price.toLocaleString()}.00
                                 </p>
-                                <span className="text-sm text-gray-500 mb-1.5">
-                                    Free insured shipping
-                                </span>
+
                             </div>
                         </div>
 
@@ -161,7 +147,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                         </div>
 
                         {/* Key Specs Grid */}
-                        <div className="mt-8 grid grid-cols-2 gap-4 border-y border-slate-200 py-6">
+                        <div className="mt-8 grid grid-cols-2 gap-4 border-y border-gray-200 py-6">
                             <div className="flex items-center gap-3">
                                 <span className="material-symbols-outlined text-gray-400">
                                     scale
@@ -170,7 +156,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                     <p className="text-xs text-gray-500 uppercase tracking-wide">
                                         Weight
                                     </p>
-                                    <p className="font-medium text-gray-900">{product.weight}</p>
+                                    <p className="font-medium text-black">{product.weight}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
@@ -181,7 +167,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                     <p className="text-xs text-gray-500 uppercase tracking-wide">
                                         Origin
                                     </p>
-                                    <p className="font-medium text-gray-900">{product.origin}</p>
+                                    <p className="font-medium text-black">{product.origin}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
@@ -192,7 +178,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                     <p className="text-xs text-gray-500 uppercase tracking-wide">
                                         Shape
                                     </p>
-                                    <p className="font-medium text-gray-900">{product.shape}</p>
+                                    <p className="font-medium text-black">{product.shape}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
@@ -203,29 +189,21 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                     <p className="text-xs text-gray-500 uppercase tracking-wide">
                                         Treatment
                                     </p>
-                                    <p className="font-medium text-gray-900">{product.treatment}</p>
+                                    <p className="font-medium text-black">{product.treatment}</p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Action Buttons */}
-                        <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                            <motion.button
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
+                        <div className="mt-8">
+                            <button
                                 onClick={handleAddToCart}
-                                className="flex-1 bg-[#1152d4] border border-transparent rounded-lg py-4 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1152d4] shadow-lg transition-all"
+                                className="w-full bg-[#1152d4] border border-transparent rounded-lg py-4 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1152d4] shadow-lg shadow-[#1152d4]/30 transition-all"
                             >
                                 <span className="material-symbols-outlined mr-2">
                                     shopping_bag
                                 </span>
                                 Add to Cart
-                            </motion.button>
-                            <button className="flex-none bg-slate-100 border border-slate-200 rounded-lg py-4 px-4 flex items-center justify-center text-gray-700 hover:bg-slate-200 transition-all">
-                                <span className="material-symbols-outlined">favorite_border</span>
-                            </button>
-                            <button className="flex-none bg-slate-100 border border-slate-200 rounded-lg py-4 px-4 flex items-center justify-center text-gray-700 hover:bg-slate-200 transition-all">
-                                <span className="material-symbols-outlined">chat</span>
                             </button>
                         </div>
 
@@ -252,7 +230,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                         </div>
 
                         {/* Accordion Details */}
-                        <div className="mt-10 border-t border-slate-200 pt-6">
+                        <div className="mt-10 border-t border-gray-200 pt-6">
                             <div className="space-y-4">
                                 {/* Description Accordion */}
                                 <details
@@ -262,16 +240,13 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                     }
                                     className="group"
                                 >
-                                    <summary className="flex cursor-pointer items-center justify-between text-gray-900 font-medium list-none">
-                                        <h2 className="text-lg">Detailed Description</h2>
+                                    <summary className="flex cursor-pointer items-center justify-between text-black font-medium list-none">
+                                        <h2 className="text-base sm:text-lg">Detailed Description</h2>
                                         <span className="material-symbols-outlined transition group-open:rotate-180">
                                             expand_more
                                         </span>
                                     </summary>
-                                    <motion.div
-                                        initial={{ opacity: 0, height: 0 }}
-                                        animate={{ opacity: 1, height: "auto" }}
-                                        className="mt-4 text-sm leading-6 text-gray-600">
+                                    <div className="mt-4 text-sm leading-6 text-gray-600">
                                         <p>{product.description}</p>
                                         {product.clarity && (
                                             <p className="mt-2">
@@ -286,10 +261,10 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                                 vibrant, making this a standout piece in any collection.
                                             </p>
                                         )}
-                                    </motion.div>
+                                    </div>
                                 </details>
 
-                                <div className="border-t border-slate-200 my-4" />
+                                <div className="border-t border-gray-200 my-4" />
 
                                 {/* Shipping Accordion */}
                                 <details
@@ -299,8 +274,8 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                     }
                                     className="group"
                                 >
-                                    <summary className="flex cursor-pointer items-center justify-between text-gray-900 font-medium list-none">
-                                        <h2 className="text-lg">Shipping & Returns</h2>
+                                    <summary className="flex cursor-pointer items-center justify-between text-black font-medium list-none">
+                                        <h2 className="text-base sm:text-lg">Shipping & Returns</h2>
                                         <span className="material-symbols-outlined transition group-open:rotate-180">
                                             expand_more
                                         </span>
@@ -317,65 +292,66 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                 </details>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
 
                 {/* Similar Items Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mt-24 border-t border-slate-200 pt-16"
-                >
+                <div className="mt-24 border-t border-gray-200 pt-16">
                     <div className="flex items-center justify-between mb-8">
-                        <h2 className="text-2xl font-bold text-gray-900">Similar Gemstones</h2>
+                        <h2 className="text-xl sm:text-2xl font-bold text-black font-serif">Similar Gemstones</h2>
                         <Link
                             href="/collections"
-                            className="text-[#1152d4] hover:text-blue-700 font-medium text-sm flex items-center"
+                            className="text-[#1152d4] hover:text-blue-600 font-medium text-xs sm:text-sm flex items-center"
                         >
-                            View All Sapphires
+                            View All
                             <span className="material-symbols-outlined text-sm ml-1">
                                 arrow_forward
                             </span>
                         </Link>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {similarProducts.map((item, index) => (
-                            <motion.div
-                                key={item.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                whileHover={{ y: -5 }}
-                                className="group relative bg-white rounded-lg border border-slate-200 overflow-hidden hover:shadow-xl transition-shadow duration-300"
-                            >
-                                <div className="aspect-square w-full overflow-hidden bg-slate-50 relative">
-                                    <Image
-                                        src={item.images[0]}
-                                        alt={item.name}
-                                        fill
-                                        className="object-cover group-hover:opacity-75 transition-opacity"
-                                    />
-                                </div>
-                                <div className="p-4">
-                                    <h3 className="text-sm font-medium text-gray-900">
-                                        <Link href={`/product/${item.id}`}>
-                                            <span className="absolute inset-0" />
+                    <Swiper
+                        modules={[Pagination, Autoplay]}
+                        spaceBetween={16}
+                        slidesPerView={2.2}
+                        pagination={{ clickable: true }}
+                        autoplay={{ delay: 3500, disableOnInteraction: false }}
+                        breakpoints={{
+                            768: { slidesPerView: 3 },
+                            1024: { slidesPerView: 4 },
+                        }}
+                        className="pb-12 similar-swiper"
+                    >
+                        {similarProducts.map((item) => (
+                            <SwiperSlide key={item.id}>
+                                <div
+                                    className="group relative bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl hover:border-[#1152d4]/30 transition-all duration-300 h-full flex flex-col"
+                                >
+                                    <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
+                                        <Image
+                                            src={item.images[0]}
+                                            alt={item.name}
+                                            fill
+                                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                    </div>
+                                    <div className="p-4 flex-1 flex flex-col">
+                                        <h3 className="text-sm font-bold text-black group-hover:text-[#1152d4] transition-colors line-clamp-1">
                                             {item.name}
+                                        </h3>
+                                        <p className="mt-1 text-xs text-gray-500">{item.weight} • {item.cut || item.shape}</p>
+                                        <p className="mt-3 text-base font-bold text-[#1152d4]">
+                                            LKR {item.price.toLocaleString()}
+                                        </p>
+                                        <Link href={`/product/${item.id}`} className="absolute inset-0 z-10">
+                                            <span className="sr-only">View {item.name}</span>
                                         </Link>
-                                    </h3>
-                                    <p className="mt-1 text-sm text-gray-500">{item.clarity || item.weight}</p>
-                                    <p className="mt-2 text-lg font-medium text-[#1152d4]">
-                                        ${item.price.toLocaleString()}
-                                    </p>
+                                    </div>
                                 </div>
-                            </motion.div>
+                            </SwiperSlide>
                         ))}
-                    </div>
-                </motion.div>
+                    </Swiper>
+                </div>
             </div>
         </main>
     );

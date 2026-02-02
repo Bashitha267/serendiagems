@@ -20,7 +20,7 @@ export const productsData: Record<string, Product> = {
     "1": {
         id: "1",
         name: "Royal Blue Ceylon Sapphire",
-        price: 4250,
+        price: 1275000,
         description:
             "An exceptional 2.14 carat oval cut sapphire featuring the coveted 'Royal Blue' hue. Sourced ethically from the mines of Ratnapura, Sri Lanka. This stone exhibits excellent clarity and brilliance, perfect for a custom engagement ring or investment piece.",
         weight: "2.14 Carats",
@@ -43,7 +43,7 @@ export const productsData: Record<string, Product> = {
     "2": {
         id: "2",
         name: "Vivid Pink Sapphire",
-        price: 3100,
+        price: 930000,
         description:
             "A stunning 1.85 carat pink sapphire with exceptional vivid color saturation. This elegant oval cut gemstone showcases the finest pink hues found in Ceylon sapphires. Heat-treated to enhance its natural beauty while maintaining its authentic character.",
         weight: "1.85 Carats",
@@ -59,30 +59,11 @@ export const productsData: Record<string, Product> = {
             "https://lh3.googleusercontent.com/aida-public/AB6AXuD5sfdfJiltsSqtGvE9joOFi4Dh_od0RuJU6B2YlKJWzE24608OQFnYC_BW5-4PeSbYKzHqyPAZvo9Q6i1Bwdw7eTLPrU973Syhh2iu932oStYs4uHeibPy7Qfv4LCeSxD3LIc9va-FsHT9PXvY1rAplQdiEBowEcE9ty_sKqAVsMCb6ND8cF10rjN7rgFZbX0Foz_78aHYiTFnengd5ERiZHitV3ZREe4778XuFs9zaNlMDiBcZVQZsmxLtWpbKctj02Uz_eSnhorw",
         ],
     },
-    "3": {
-        id: "3",
-        name: "Burma Ruby",
-        price: 8500,
-        description:
-            "An extraordinary 1.50 carat round Burmese ruby displaying the legendary 'pigeon blood' red color. This natural, unheated ruby is exceptionally rare and represents the pinnacle of ruby quality. A true collector's gemstone with impeccable provenance.",
-        weight: "1.50 Carats",
-        origin: "Myanmar (Burma)",
-        shape: "Round Brilliant Cut",
-        treatment: "Natural",
-        clarity: "VVS - Excellent",
-        color: "Pigeon Blood Red",
-        cut: "Round Cut",
-        badge: "Rare Find",
-        badgeColor: "bg-rose-600/90",
-        category: "Ruby",
-        images: [
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuCVxs5ull0jDUMHtPnuxvBBjewTLf1Fj-FSviqCeiDqrZCcXaLqQR4LcHdpi0R2eOAO_x8_GOmxRI6_3iAE3Obap4miXdRap9rK3MBtH6mZ5Fwk6YH-qjb6AWLzkhCv_YESy_jsR7NFAR7e1kMc4cgaqHZk2UpXyxI42oK3LkkR352jAYO8alT_luQWyRGCp0FKSBumZiBylVB4f81iyfZTX4ZFhJOoXUxPsEWVorUqcngLKO5cQN8RD7258SVUo4y6jiNlBCyyoabn",
-        ],
-    },
+
     "4": {
         id: "4",
         name: "Canary Yellow Sapphire",
-        price: 5900,
+        price: 1770000,
         description:
             "A magnificent 3.05 carat yellow sapphire with a captivating canary yellow hue. The emerald cut showcases the stone's exceptional clarity and vibrant color. This natural, unheated sapphire is perfect for statement jewelry or as an astrological gemstone.",
         weight: "3.05 Carats",
@@ -101,7 +82,7 @@ export const productsData: Record<string, Product> = {
     "5": {
         id: "5",
         name: "Peacock Teal Sapphire",
-        price: 2800,
+        price: 840000,
         description:
             "A mesmerizing 1.95 carat teal sapphire showcasing a unique peacock-inspired color blend of blue and green. The radiant cut enhances the stone's exceptional brilliance and color play. Heat-treated to bring out its captivating hues.",
         weight: "1.95 Carats",
@@ -120,7 +101,7 @@ export const productsData: Record<string, Product> = {
     "6": {
         id: "6",
         name: "Lavender Spinel",
-        price: 1950,
+        price: 585000,
         description:
             "A delightful 2.50 carat lavender spinel with excellent transparency and a soft, romantic color. The cushion cut perfectly complements the stone's gentle hue. This natural, untreated spinel is a rare and beautiful alternative to traditional gemstones.",
         weight: "2.50 Carats",
